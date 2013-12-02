@@ -193,7 +193,184 @@ table {
   overflow: hidden;
   transition: height .35s ease; }
 
-.container {
-  margin: 1em 10%; }
+img {
+  vertical-align: middle;
+  display: block;
+  height: auto;
+  max-width: 100%; }
+
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4em;
+  color: black; }
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  color: #9e147a;
+  line-height: 1.125em; }
+
+body {
+  background: #ebebeb;
+  padding: 1.5em 1.5em; }
+
+.topwrap {
+  background: #ffffff;
+  margin: 0 auto 1.5em auto;
+  max-width: 1140px;
+  padding: 1.5em; }
+
+/************ Header Banner ***********/
+.banner {
+  background: url(http://lorempixel.com/1280/1024) no-repeat center center transparent;
+  position: relative;
+  height: 0;
+  padding: 0 1.5em 60% 1.5em; }
+
+.brand {
+  background: url(../img/logo.png) no-repeat center center white;
+  text-indent: -9999px;
+  display: block;
+  width: 220px;
+  height: 120px;
+  background-size: 90% auto; }
+
+.advert-block {
+  *zoom: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .advert-block:before, .advert-block:after {
+    content: " ";
+    display: table; }
+  .advert-block:after {
+    clear: both; }
+
+.ferde-row {
+  font-weight: 700;
+  text-transform: uppercase;
+  display: table;
+  border-collapse: collapse;
+  width: 100%; }
+  .ferde-row .left {
+    text-align: right;
+    display: table-cell;
+    background: rgba(255, 255, 255, 0.7);
+    color: #9e147a;
+    width: 66%;
+    padding: 2em 4em 0 1em;
+    border-right: 1% solid green;
+    vertical-align: middle; }
+  .ferde-row .center {
+    display: table-cell;
+    width: 0.25em; }
+  .ferde-row .right {
+    display: table-cell;
+    background: rgba(158, 20, 122, 0.7);
+    color: #ffffff;
+    padding: 1em;
+    vertical-align: middle; }
+  .ferde-row p {
+    margin: 0;
+    padding: 0; }
+  .ferde-row .title {
+    font-size: 2em; }
+  .ferde-row .btn {
+    margin-top: 1em;
+    display: inline-block;
+    background: #9e147a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.25em 0.5em; }
+
+.signo {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1em; }
+
+.content-info {
+  *zoom: 1;
+  background: #9e147a;
+  color: #ffffff;
+  margin: 1.5em auto 0 auto;
+  padding: 1.5em;
+  max-width: 1140px; }
+  .content-info:before, .content-info:after {
+    content: " ";
+    display: table; }
+  .content-info:after {
+    clear: both; }
+
+.content-info a {
+  color: #a5da64; }
+.content-info .widget {
+  width: 33%;
+  float: left;
+  padding: 1.5em; }
+  .content-info .widget .widget-inner {
+    font-size: 0.875em; }
+  .content-info .widget h3 {
+    text-transform: none;
+    color: #ffffff; }
+.content-info .copy-row {
+  padding: 1.5em;
+  clear: left; }
+
+.nav-main {
+  font-size: 0.875em;
+  line-height: 1em;
+  font-weight: 700; }
+  .nav-main ul {
+    margin: 0;
+    padding: 0; }
+  .nav-main li {
+    list-style: none;
+    width: 220px; }
+  .nav-main a {
+    display: block;
+    background: rgba(228, 228, 228, 0.8);
+    color: #9e147a;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.333333em 1em;
+    margin: 0.25em 0; }
+    .nav-main a:hover, .nav-main a:focus {
+      color: #ffffff;
+      background: rgba(158, 20, 122, 0.8); }
+  .nav-main .dropdown {
+    position: relative; }
+    .nav-main .dropdown:hover .dropdown-menu, .nav-main .dropdown:focus .dropdown-menu {
+      display: block; }
+  .nav-main .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    padding-left: 0.25em;
+    top: -0.25em; }
+
+.main {
+  *zoom: 1;
+  padding: 1.5em;
+  margin: 1.5em 0 0 0; }
+  .main:before, .main:after {
+    content: " ";
+    display: table; }
+  .main:after {
+    clear: both; }
+
+.single-post .main {
+  background: #b5df86; }
+.single-post .post header {
+  margin-left: 50%; }
+  .single-post .post header h1 {
+    text-transform: none;
+    color: #000000;
+    margin-bottom: 0;
+    font-size: 1.5em; }
+.single-post .post .entry-content {
+  margin-left: 50%; }
 
 /*# sourceMappingURL=main.min.css.map */

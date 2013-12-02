@@ -1,0 +1,12 @@
+body {
+  font-family: $sans-serif;
+  font-size: 16px;
+  line-height:1.4em;
+  color:black;
+}
+
+h1,h2,h3 {
+  text-transform: uppercase;
+  color:$magenta;
+  line-height: 1.125em;
+}
