@@ -81,6 +81,9 @@ body {
     color:#ffffff;
     text-decoration: none;
     padding:0.25em 0.5em;
+    &:hover, &:focus {
+      background: $green;
+    }
   }
 
 

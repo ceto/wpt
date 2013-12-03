@@ -205,6 +205,12 @@ body {
   line-height: 1.4em;
   color: black; }
 
+a {
+  color: #9e147a;
+  text-decoration: none; }
+  a:hover, a:focus {
+    text-decoration: underline; }
+
 h1, h2, h3 {
   text-transform: uppercase;
   color: #9e147a;
@@ -283,6 +289,8 @@ body {
     color: #ffffff;
     text-decoration: none;
     padding: 0.25em 0.5em; }
+    .ferde-row .btn:hover, .ferde-row .btn:focus {
+      background: #a5da64; }
 
 .signo {
   text-align: center;
@@ -352,25 +360,52 @@ body {
     top: -0.25em; }
 
 .main {
-  *zoom: 1;
   padding: 1.5em;
   margin: 1.5em 0 0 0; }
-  .main:before, .main:after {
-    content: " ";
-    display: table; }
-  .main:after {
-    clear: both; }
+
+.post {
+  margin: 0 0 3em 0; }
+  .post .entry-figure {
+    float: left;
+    width: 18%; }
+  .post header {
+    margin-left: 20%; }
+    .post header .entry-title {
+      text-transform: none;
+      color: #000000;
+      margin-bottom: 0;
+      font-size: 1.25em; }
+      .post header .entry-title a {
+        color: black; }
+        .post header .entry-title a:hover, .post header .entry-title a:focus {
+          color: #9e147a;
+          text-decoration: none; }
+  .post .entry-content, .post .entry-summary {
+    margin-left: 20%; }
+  .post .entry-summary a {
+    background: #9e147a;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.875em;
+    line-height: 1em;
+    display: inline-block;
+    padding: 0.5em 0.5em; }
+    .post .entry-summary a:hover, .post .entry-summary a:focus {
+      background: #a5da64;
+      text-decoration: none; }
 
 .single-post .main {
   background: #b5df86; }
-.single-post .post header {
-  margin-left: 50%; }
-  .single-post .post header h1 {
-    text-transform: none;
-    color: #000000;
-    margin-bottom: 0;
-    font-size: 1.5em; }
-.single-post .post .entry-content {
-  margin-left: 50%; }
+
+/***************** Home Page *****************/
+.page-template-tmpl-home-php .main {
+  padding: 1.5em 0 0 0; }
+.page-template-tmpl-home-php .intro {
+  padding: 0 12.5%; }
+.page-template-tmpl-home-php .news-block {
+  padding: 1.5em 12.5%;
+  background: #cbe9ab;
+  margin: 3em 0 0 0; }
 
 /*# sourceMappingURL=main.min.css.map */
