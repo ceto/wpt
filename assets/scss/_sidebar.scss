@@ -1,0 +1,30 @@
+.content-info {
+
+  a{
+    color:$green;
+  }
+  .widget {
+    width:33%;
+    float:left;
+    padding:1.5em;
+    @include breakpoint($s2){
+      width:auto;
+    }
+    .widget-inner {
+      font-size: 0.875em;
+    }
+    h3 {
+      text-transform: none;
+      color:#ffffff;
+    }
+
+  }
+
+  .copy-row {
+    padding:1.5em;
+    clear:left;
+  }
+  
+}
+
+

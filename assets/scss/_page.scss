@@ -1,0 +1,194 @@
+.main {
+  //@include clearfix;
+  padding:1.5em;
+  margin:0 0 0 0;
+
+}
+
+
+.post {
+  @include clearfix;
+  margin:0 auto 3em auto;
+  max-width:$s2;
+  .entry-figure {
+    float:left;
+    width:24%;
+    @include breakpoint($s2){
+      width:10.3333em;
+      margin-right:0.5em;
+    }
+    @include breakpoint($s1){
+      width:auto;
+      margin-right:0;
+      float:none;
+      margin: 0 -1.5em 1em -1.5em;
+    }
+  
+  }
+  header {
+    margin-left:26%;
+    @include breakpoint($s2){
+      margin-left:0;
+    }
+    .entry-title {
+      text-transform: none;
+      color:#000000;
+      font-size: 1.25em;
+      a {
+        color:black;
+        &:hover, &:focus {
+          color:$magenta;
+          text-decoration: none; 
+        }
+      }
+
+    }
+  }
+
+  .entry-content, .entry-summary{
+    margin-left:26%;
+    @include breakpoint($s2){
+      margin-left:0;
+    }
+  }
+  .entry-summary {
+    a {
+      //@include clearfix;
+      background: $magenta;
+      color:#ffffff;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.875em;
+      line-height: 1em;
+      display: inline-block;
+      padding:0.5em 0.5em;
+      &:hover, &:focus {
+        background: $green;
+        text-decoration: none;
+      }
+    }
+  }
+
+}
+
+.blog {
+  .page-header {
+    margin:0 auto;
+    max-width:$s2;
+  }
+  .entry-title {
+    margin-top:0;
+    margin-bottom:0;
+  }
+}
+
+/***************** Single Blog Post *****************/
+.single-post {
+  .advert-block {
+    height:420px;
+    .ferde-row {
+      display:none;
+    }
+    .signo {
+      display:none;
+    }
+  }
+
+  .main {
+    padding:0;
+    @include breakpoint($s2) {
+      padding:1.5em;
+    }
+  }
+  
+  .post {
+    padding:0 1.5em;
+    margin-bottom: 0;
+    @include breakpoint($s2) {
+      padding:0;
+    }
+    header {
+      margin-left:0;
+    }
+    .entry-title {
+      text-transform: uppercase;
+      color:$magenta;
+      margin-bottom:0;
+      font-size: 2em;
+    }
+
+    .entry-content {
+      margin-left:0;
+    }
+  }
+
+  .entry-banner{
+    margin-bottom: 1.5em;
+  }
+
+}
+
+/***************** Home Page *****************/
+.page-template-tmpl-home-php {
+
+  .main {
+    padding:1.5em 0 0 0;
+  }
+
+  .intro {
+   padding:0 1.5em;
+   margin:0 auto;
+   max-width:$s2;
+  }
+
+  .news-block {
+    //@include clearfix;
+    padding:1.5em 12.5%;
+    background: $green50;
+    margin:3em 0 0 0;
+    @include breakpoint($s2) {
+      padding:1.5em;
+    }
+    .post {
+      max-width:none;
+    }
+  }
+  
+  .block-title {
+    //margin:0;
+  }
+
+  .post {
+    .entry-title{
+      margin-top:0;
+      margin-bottom:0;
+    }
+    
+  }
+  
+
+}
+
+
+/***************** Single Apartment Page *****************/
+.single-apartment {
+
+  .main {
+    padding:0 0 1.5em 0;
+  }
+
+  .apartment {
+    padding:0 1.5em;
+    @include breakpoint($s2) {
+      //padding:0;
+    }
+        
+  
+    .details {
+      margin-top:1.5em;
+    }
+  }
+  
+
+}
+

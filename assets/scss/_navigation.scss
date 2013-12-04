@@ -1,0 +1,156 @@
+.nav-main {
+  font-size: 0.875em;
+  line-height: 1em;
+  font-weight:700; 
+  ul {
+    margin:0;
+    padding:0;
+  }
+  li {
+    list-style:none;
+    width:220px;
+    @include breakpoint($s2) {
+      width:auto;
+    }
+  }
+  a {
+    display: block;
+    background: rgba($gray75,0.8);
+    color:$magenta;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:0.333333em 1em;
+    margin:0.25em 0;
+
+    &:hover, &:focus{
+      color:#ffffff;
+      background: rgba($magenta,0.8);
+    }
+  }
+  
+  .dropdown {
+    position: relative;
+    &:hover .dropdown-menu, &:focus .dropdown-menu{
+      display: block;
+    }
+  }
+  .dropdown-menu {
+    display: none;
+    position:absolute;
+    left:100%;
+    padding-left: 0.25em;
+    top:-0.25em;
+    @include breakpoint($s2) {
+      position:static;
+      display: block;
+      padding-left: 0;
+      text-transform: none !important;
+
+    }
+
+  }
+}
+
+
+
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+.nav-tabs {
+  @include clearfix;
+  margin:0 0;
+  padding:0 0 0 1em;
+  background: $green;
+  > li {
+    float: left;
+    list-style: none;
+
+    // Actual tabs (as links)
+    > a {
+      margin-right: 0.5em;
+
+      display: block;
+      padding:1em 0.5em;
+      font-size: 1.25em;
+      line-height: 1.125em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color:#ffffff;
+
+      &:hover {
+        border-color: $gray $gray $gray125;
+        text-decoration: none;
+      }
+    }
+
+    // Active state, and it's :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $magenta;
+        cursor: default;
+        
+      }
+    }
+  }
+}
+
+// Tabbable tabs
+// -------------------------
+
+// Hide tabbable panes to start, show them when `.active`
+.tab-content {
+  background: $green50;
+  margin:0 0;
+  > .tab-pane {
+    @include clearfix;
+    display: none;
+    padding: 1.5em;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+
+/********* Off Canvas Navigation *******/
+@include breakpoint ($s2) {
+  body {
+    overflow-x:hidden;
+  }
+  
+  .minden {
+    //box-shadow: 0px -5px 5px $gray125;
+  }
+  .banner {
+    z-index:-1;
+  }
+
+  .banner, .minden{
+    transition: all .2s ease;     
+    width: 100%;
+    //padding: 5%;
+  }
+
+  .js .banner { 
+    margin-left: -100%;
+    float: left;
+  }
+  .js .minden{
+    margin-left: 0;
+    float: left;
+  }
+
+  .active-nav .banner { 
+    margin-left: 0; 
+    //width: 80%;
+    width:240px;
+  }
+  .active-nav .minden{
+    margin-right: -100%;
+  }
+}
+
