@@ -17,4 +17,10 @@ h1,h2,h3 {
   text-transform: uppercase;
   color:$magenta;
   line-height: 1.125em;
+
+  small {
+    display: block;
+    font-size:0.666666em;
+    line-height: 1em;     
+  }
 }

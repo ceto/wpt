@@ -6,13 +6,23 @@
       <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
     </div>
   <![endif]-->
-  
-  <div class="topwrap">
+
 
   <?php
     do_action('get_header');
     get_template_part('templates/header');
   ?>
+  <div class="minden">
+  <div class="topwrap">
+    <a href="#" class="menu-toggle"><span>X</span></a>
+    <section class="btns">
+      <a href="tel:+36707705653" class="phone"><span>T</span>+36 70 7705653</a>
+      <a href="#" class="mail"><span>E</span>Send message</a>
+    </section>
+
+    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment'))  ) : ?>
+    <?php get_template_part('templates/advert'); ?>
+    <?php endif; ?>
 
   <div class="wrap container" role="document">
     <div class="content row">
@@ -30,6 +40,7 @@
   </div><!-- /.topwrap -->
 
   <?php get_template_part('templates/footer'); ?>
+  </div><!-- /.minden -->
 
 </body>
 </html>

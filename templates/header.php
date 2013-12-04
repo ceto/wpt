@@ -7,18 +7,4 @@
       endif;
     ?>
   </nav>
-  <section class="advert-block">
-    <div class="ferde-row">
-      <div class="left">
-        <p class="title">Grillfest</p>
-        <p class="desc">Numquam, maiores, cum nihil esed.</p>
-        <a href="#" class="btn">Nahere infos here</a>
-      </div>
-      <div class="center"></div>
-      <div class="right">
-        Lorem ipsum<br />adipisicing elit.
-      </div>
-    </div>
-    <p class="signo">Bauparzellen * Doppelhauser * Wohnungen</p>
-  </section>
 </header>

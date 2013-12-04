@@ -44,3 +44,34 @@ var UTIL = {
 };
 
 $(document).ready(UTIL.loadEvents);
+
+
+var showSidebar = function() {
+  $('body').removeClass("active-nav").toggleClass("active-sidebar");
+  $('.menu-toggle').removeClass("active-button");
+};
+var showMenu = function() {
+  $('body').removeClass("active-sidebar").toggleClass("active-nav");
+  $('.menu-toggle').toggleClass("active-button");
+};
+
+// add/remove classes everytime the window resize event fires
+jQuery(window).resize(function(){
+  var off_canvas_nav_display = $('.off-canvas-navigation').css('display');
+  var menu_button_display = $('.menu-toggle').css('display');
+  if (off_canvas_nav_display === 'block') {
+    $("body").removeClass("three-column").addClass("small-screen");
+  }
+  if (off_canvas_nav_display === 'none') {
+    $("body").removeClass("active-sidebar active-nav small-screen")
+      .addClass("three-column");
+    }
+});
+
+jQuery(document).ready(function($) {
+    // Toggle for nav menu
+    $('.menu-toggle').click(function(e) {
+      e.preventDefault();
+      showMenu();
+    });
+});

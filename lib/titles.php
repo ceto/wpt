@@ -32,6 +32,8 @@ function roots_title() {
   } elseif (is_404()) {
     return __('Not Found', 'roots');
   } else {
-    return get_the_title();
+    global $post;
+    $subt = (get_post_meta( $post->ID, '_cmb_subtitle', true )!=='')?'<small>'.get_post_meta( $post->ID, '_cmb_subtitle', true ).'</small>':'';
+    return get_the_title().$subt;
   }
 }

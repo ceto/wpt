@@ -100,11 +100,11 @@ module.exports = function(grunt) {
 
   // Register tasks
   grunt.registerTask('default', [
-    'clean',
     'sass',
     'autoprefixer',
     'uglify',
-    'version'
+    'version',
+    'clean'
   ]);
   grunt.registerTask('dev', [
     'watch'
