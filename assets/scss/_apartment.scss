@@ -1,3 +1,110 @@
 .chooser{
   
 }
+
+.apartment {
+  .panel {
+    @include clearfix;
+    background: $gray75;
+    padding:1.5em;  
+  }
+  .entry-plan {
+    width:62%;
+    float:left;
+    position: relative;
+    @include breakpoint($s2) {
+      width:auto;
+      float:none;
+    }
+    &:after {
+      content:"O";
+      position: absolute;
+      right:0;
+      bottom:0;
+      display: block;
+      background: rgba($gray125,0.8);
+      color:#ffffff;
+      width:50px;
+      height:50px;
+      font-size: 25px;
+      line-height: 50px;
+      text-align: center;
+    }
+  
+
+    img {
+      width:100%;
+    }
+    
+    
+  }
+  .action-block {
+    width:38%;
+    float:left;
+    padding-left:1.5em;
+
+    @include breakpoint($s2) {
+      width:auto;
+      float:none;
+      padding-left: 0;
+    }
+    
+    h2 {
+      margin:0 0 2em;
+      @include breakpoint($s2) {
+        margin:1em 0;
+      }
+    }
+    .entry-floormap {
+      text-align: center;
+    }
+    .action-buttons {
+      margin-bottom:2em;
+      margin-right: -1.5em;
+    }
+    .btn {
+      display:block;
+      margin-bottom:0.25em;
+    }
+  }
+
+  .details {
+    .tab-content > .tab-pane.data-list {
+      padding:0;
+    }
+    .data-item {
+      padding:1em;
+      margin:0;
+      width:33.333333%;
+      float:left;
+      font-size: 1.25em;
+      &:nth-child(3n+1) {
+        clear:left;
+      }
+      span {
+        display: block;
+        font-size: 0.75em;
+      }
+
+      @include breakpoint($s2){
+        width:50%;
+        &:nth-child(2n+1) {
+          clear:left;
+        }
+        &:nth-child(3n+1) {
+          clear:none;
+        }
+      }
+      @include breakpoint($s1){
+        width:auto;
+        float:none;
+      }
+    }
+
+
+
+
+
+  }
+
+}

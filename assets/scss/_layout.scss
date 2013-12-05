@@ -274,7 +274,7 @@ body {
   @include breakpoint($s3) {
     margin-top:0;
   }
-  @include breakpoint($s2) {
+  @include breakpoint($s1) {
     padding:1.5em 0;
   }
 }

@@ -103,9 +103,106 @@ function roots_gallery($attr) {
 
   return $output;
 }
+
+/************* Modified Great **********/
+
+function roots_gallery_great($attr) {
+  $post = get_post();
+
+  static $instance = 0;
+  $instance++;
+
+  if (!empty($attr['ids'])) {
+    if (empty($attr['orderby'])) {
+      $attr['orderby'] = 'post__in';
+    }
+    $attr['include'] = $attr['ids'];
+  }
+
+  $output = apply_filters('post_gallery', '', $attr);
+
+  if ($output != '') {
+    return $output;
+  }
+
+  if (isset($attr['orderby'])) {
+    $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+    if (!$attr['orderby']) {
+      unset($attr['orderby']);
+    }
+  }
+
+  extract(shortcode_atts(array(
+    'order'      => 'ASC',
+    'orderby'    => 'menu_order ID',
+    'id'         => $post->ID,
+    'itemtag'    => '',
+    'icontag'    => '',
+    'captiontag' => '',
+    'columns'    => 4,
+    'size'       => 'small11',
+    'include'    => '',
+    'exclude'    => '',
+    'link'       => 'file'
+  ), $attr));
+
+  $id = intval($id);
+  $columns = (12 % $columns == 0) ? $columns: 4;
+  $grid = sprintf('col-sm-%1$s col-lg-%1$s', 12/$columns);
+
+  if ($order === 'RAND') {
+    $orderby = 'none';
+  }
+
+  if (!empty($include)) {
+    $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+    $attachments = array();
+    foreach ($_attachments as $key => $val) {
+      $attachments[$val->ID] = $_attachments[$key];
+    }
+  } elseif (!empty($exclude)) {
+    $attachments = get_children(array('post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+  } else {
+    $attachments = get_children(array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+  }
+
+  if (empty($attachments)) {
+    return '';
+  }
+
+  if (is_feed()) {
+    $output = "\n";
+    foreach ($attachments as $att_id => $attachment) {
+      $output .= wp_get_attachment_link($att_id, $size, true) . "\n";
+    }
+    return $output;
+  }
+
+  $unique = (get_query_var('page')) ? $instance . '-p' . get_query_var('page'): $instance;
+  $output = '<div class="gallery gallery-' . $id . '-' . $unique . '">';
+
+  $i = 0;
+  foreach ($attachments as $id => $attachment) {
+    $imi= wp_get_attachment_image_src( $id, 'greato', false );
+    $thumi = wp_get_attachment_image_src( $id, $size, false );
+    //$image = ('file' == $link) ? wp_get_attachment_link($id, $size, false, false) : wp_get_attachment_link($id, $size, true, false);
+    $image = '<a href="'.$imi[0].'" class="thumbnail img-thumbnail" title="'.get_the_title( $id ).'"><img src="'.$thumi[0].'" alt="'.get_the_title( $id ).'"></a>';
+    $output .= $image;
+    $i++;
+  }
+  
+  $output .= '';
+  $output .= '</div>';
+
+
+  return $output;
+}
+
+
 if (current_theme_supports('bootstrap-gallery')) {
   remove_shortcode('gallery');
-  add_shortcode('gallery', 'roots_gallery');
+  add_shortcode('gallery', 'roots_gallery_great');
   add_filter('use_default_gallery_style', '__return_null');
 }
 

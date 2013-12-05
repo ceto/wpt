@@ -24,3 +24,36 @@ h1,h2,h3 {
     line-height: 1em;     
   }
 }
+
+.btn {
+  //position:relative;
+  background: rgba($magenta,0.8);
+  color:#ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all .2s ease;
+  display: inline-block;
+  padding:0.5em 1em 0.5em 0.5em;
+  font-size: 1.25em;
+  line-height: 1em;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    background: rgba($magenta,1);
+    span {
+      //color: rgba(#ffffff,0.8);
+    }
+  }
+  span {
+    //display: block;
+    //position:absolute;
+    //top:0; left:0; bottom:0;
+    margin-right: 0.5em;
+    line-height: 1em;
+    //text-align: center;
+    //background: rgba($magenta,1);
+
+
+  }
+
+}

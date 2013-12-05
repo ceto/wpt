@@ -73,54 +73,55 @@ function cmb_apartment( array $meta_boxes ) {
     'fields'     => array(
 
     array(
-      'name' => __('Salg'),
+      'name' => __('Status'),
       'id'   => $prefix . 'status',
       'type' => 'radio_inline',
       'options' => array(
-          array('name' => 'Ledig', 'value' => 'ledig',),
-          array('name' => 'Reservert', 'value' => 'reservert',),
-          array('name' => 'Solgt', 'value' => 'solgt',)
+          array('name' => 'Available', 'value' => 'available',),
+          array('name' => 'Reserved', 'value' => 'reserved',),
+          array('name' => 'Sold', 'value' => 'sold',)
       )
     ),
 
     array(
-        'name' => 'P-rom',
-        'id'   => $prefix . 'prom',
+        'name' => 'Wohnfläche',
+        'id'   => $prefix . 'wohn',
         'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Eigennutzer Kaufpreis',
+        'id'   => $prefix . 'price',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Baujahr',
+        'id'   => $prefix . 'bau',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Ausrichtung',
+        'id'   => $prefix . 'aus',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Raumaufteilung',
+        'id'   => $prefix . 'raum',
+        'type' => 'text_medium',
     ),
 
     array(
-        'name' => 'S-rom',
-        'id'   => $prefix . 'srom',
-        'type' => 'text_small',
-    ),
-    
-    array(
-        'name' => 'Antall soverom',
-        'id'   => $prefix . 'antal',
-        'type' => 'text_small',
-    ),
-
-    array(
-        'name' => 'Bra',
-        'id'   => $prefix . 'bra',
-        'type' => 'text_small',
-    ),
-    array(
-        'name' => 'Pris',
-        'id'   => $prefix . 'pris',
-        'type' => 'text_small',
-    ),
-    array(
-        'name' => 'Felleskostnad stipulert',
-        'id'   => $prefix . 'kvm',
-        'type' => 'text_small',
-    ),
-
-    array(
-      'name' => 'Floor plan',
+      'name' => 'Floor map',
       'desc' => 'Upload an image or enter an URL.',
-      'id' => $prefix . 'plan',
+      'id' => $prefix . 'floormap',
+      'type' => 'file',
+      'save_id' => true, // save ID using true
+      'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )
+    ),
+
+    array(
+      'name' => 'Downloadable PDF',
+      'desc' => 'Upload a PDF Document.',
+      'id' => $prefix . 'pdf',
       'type' => 'file',
       'save_id' => true, // save ID using true
       'allow' => array( 'url', 'attachment' ) // limit to just attachments with array( 'attachment' )

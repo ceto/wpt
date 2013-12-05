@@ -4,27 +4,50 @@
   </section>
   <article <?php post_class(); ?>>
     <header>
-      <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php get_template_part('templates/entry-meta'); ?>
+      <h1 class="entry-title">Navigator<small><?php the_title(); ?></small></h1>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
     </div>
-    <figure class="entry-figure">
-      <a href="<?php the_permalink(); ?>">
-        <?php the_post_thumbnail('large'); ?>
-      </a>
-    </figure>
+    <section class="panel">
+      <figure class="entry-plan">
+        <a href="<?php the_permalink(); ?>">
+          <?php the_post_thumbnail('large'); ?>
+        </a>
+      </figure>
+      <div class="action-block">
+        <h2><?php the_title(); ?></h2>
+        <div class="action-buttons">
+          <a href="#" class="btn download"><span>D</span>Download grundris PDF</a>
+          <a href="#" class="btn buy"><span>E</span>Anfrage</a>
+        </div>
+        <figure class="entry-floormap">
+          <a rel="lightbox[alap]" href="<?php echo get_post_meta($post->ID, '_meta_floormap', true); ?>">
+              <img src="<?php echo get_post_meta($post->ID, '_meta_floormap', true); ?>" />
+          </a>
+        </figure>
+      </div>
+    </section>
+
     <section class="details">
       <ul class="nav nav-tabs" id="custom-tabs-65">
-        <li class="active"><a href="#custom-tab-0-lorem-ipsum" data-toggle="tab">Lorem ipsum</a></li>
+        <li class="active"><a href="#custom-tab-0-lorem-ipsum" data-toggle="tab">Details</a></li>
         <li><a href="#custom-tab-0-integer-posuere-erat" data-toggle="tab">Integer</a></li>
         <li><a href="#custom-tab-0-dapibus-posuere" data-toggle="tab">Dapibus</a></li>
       </ul>
       <div class="tab-content">
-        <div id="custom-tab-0-lorem-ipsum" class="tab-pane fade active in">
-        <p>Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper.</p>
-        <p>Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.</p>
+        <div id="custom-tab-0-lorem-ipsum" class="tab-pane fade active in data-list">
+          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wohn', true ); ?> m<sup>2</sup></p>
+          <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR.</p>
+          <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
+          <p class="data-item"><span>Raumaufteilung</span> <?php echo get_post_meta( $post->ID, '_meta_raum', true ); ?></p>
+          
+          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wohn', true ); ?> m<sup>2</sup></p>
+          <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR.</p>
+          <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
+          <p class="data-item"><span>Raumaufteilung</span> <?php echo get_post_meta( $post->ID, '_meta_raum', true ); ?></p>
+
+
         </div>
         <div id="custom-tab-0-integer-posuere-erat" class="tab-pane fade ">
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
