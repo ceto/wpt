@@ -6,10 +6,11 @@
       style="background-image:url(<?php echo $fimi[0]; ?>)"
       <?php endif; ?>
     >
+      <div class="trapezoid"></div>
       <div class="ferde-row">
         <div class="left">
           <p class="title">Grillfest</p>
-          <p class="desc">Numquam, maiores, cum nihil esed.</p>
+          <p class="desc">am 15.10.2013 bei uns</p>
           <a href="#" class="btn">Nahere infos here</a>
         </div>
         <div class="center"></div>

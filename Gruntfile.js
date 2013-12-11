@@ -6,6 +6,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
          style: 'nested',
+         noCache: true,
          sourcemap: true
         },
         files: {
@@ -57,7 +58,7 @@ module.exports = function(grunt) {
     watch: {
       sass: {
           files: ['assets/scss/*.scss'],
-          tasks: ['sass', /*'autoprefixer',*/ 'version']
+          tasks: ['sass', 'autoprefixer', 'version' ]
       },
       js: {
         files: [

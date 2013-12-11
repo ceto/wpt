@@ -190,7 +190,7 @@ if (is_admin()){
     'use_with_theme' => '/wp-content/themes/wpt/lib/tmc'          //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
   );
   $my_meta =  new Tax_Meta_Class($config);
-  
+  $my_meta->addWysiwyg($prefix.'content',array('name'=> __('Content editor ','tax-meta')));
   $my_meta->addTextarea($prefix.'svgdata',array('name'=> __('SVG Data','tax-meta')));
   $my_meta->addText($prefix.'imgurl',array('name'=> __('Image','tax-meta')));
   $my_meta->addImage($prefix.'image',array('name'=> __('Image of this item ','tax-meta')));
