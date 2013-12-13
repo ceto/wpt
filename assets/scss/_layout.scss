@@ -157,6 +157,11 @@ body {
   background-size: cover;
   position: relative;
   margin-bottom: 1.5em;
+  min-height:570px;
+  @include breakpoint($s2){
+    min-height:0;
+  }
+  
 }
 
 .trapezoid {
@@ -173,7 +178,7 @@ body {
 .ferde-row {
   position: relative;
   //@include clearfix;
-  margin-top:360px;
+  margin-top:340px;
   font-weight: 700;
   text-transform: uppercase;
   display: table;
@@ -189,9 +194,9 @@ body {
     
     color:$magenta;
     width:50%;
-    padding:2em 0em 0 1em ;
-    border-right: 1% solid green;
+    padding:2em 0 0 1em ;
     vertical-align: middle;
+
 
     @include breakpoint($s2){
       padding-right:1.5em;
@@ -205,7 +210,8 @@ body {
     }
     .desc {
       line-height:1em;
-      margin-top:0.5em;
+      margin-top:0;
+      margin-bottom: 1.125em;
     }
 
   }
@@ -249,6 +255,7 @@ body {
   }
   .title {
     font-size:3em;
+    line-height:1em;
     //font-family: $sans-serif;
     font-weight: 700;
     @include breakpoint($s2){
@@ -256,7 +263,6 @@ body {
     }
   }
   .btn {
-    margin-top: 1em;
     display: inline-block;
     background: $magenta;
     color:#ffffff;
@@ -281,15 +287,17 @@ body {
 }
 .signo {
   //text-transform: uppercase;
-  position:relative;
+  position:absolute;
+  bottom:0;
+  left:0;right:0;
   text-align: center;
   color:rgba(#ffffff,1);
   font-size: 2.5em;
   line-height:1.125em;
   font-weight: 900;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
   margin-top:0em;
-  padding:0 0.25em;
+  padding:0 0;
   text-shadow: 0px 0px 1px $gray125;
 
   -webkit-transform: rotate(-2deg) translateY(-0.125em); 
@@ -297,8 +305,10 @@ body {
 
   @include breakpoint($s3){
     font-size:2em;
+    margin-bottom: 0.75em;
   }
   @include breakpoint($s2){
+    position:relative;
     margin-top: 0.75em;
     font-size:1.5em;
     -webkit-transform:none; 

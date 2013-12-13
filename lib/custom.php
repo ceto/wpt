@@ -276,6 +276,76 @@ add_action( 'init', 'add_shortcodes' );
 function add_shortcodes() {
   add_shortcode('tabs', 'bs_tabs' );
   add_shortcode('tab', 'bs_tab' );
+  add_shortcode('collapsibles', 'bs_collapsibles' );
+  add_shortcode('collapse', 'bs_collapse' );
+}
+
+
+/*--------------------------------------------------------------------------------------
+  *
+  * bs_collapsibles
+  *
+  * @author Filip Stefansson
+  * @since 1.0
+  *
+  *-------------------------------------------------------------------------------------*/
+function bs_collapsibles( $atts, $content = null ) {
+
+  if( isset($GLOBALS['collapsibles_count']) )
+    $GLOBALS['collapsibles_count']++;
+  else
+    $GLOBALS['collapsibles_count'] = 0;
+
+  $defaults = array();
+  extract( shortcode_atts( $defaults, $atts ) );
+
+  // Extract the tab titles for use in the tab widget.
+  preg_match_all( '/collapse title="([^\"]+)"/i', $content, $matches, PREG_OFFSET_CAPTURE );
+
+  $tab_titles = array();
+  if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
+
+  $output = '';
+
+  if( count($tab_titles) ){
+    $output .= '<div class="panel-group" id="accordion-' . $GLOBALS['collapsibles_count'] . '">';
+    $output .= do_shortcode( $content );
+    $output .= '</div>';
+  } else {
+    $output .= do_shortcode( $content );
+  }
+
+  return $output;
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------
+  *
+  * bs_collapse
+  *
+  * @author Filip Stefansson
+  * @since 1.0
+  *
+  *-------------------------------------------------------------------------------------*/
+function bs_collapse( $atts, $content = null ) {
+
+  if( !isset($GLOBALS['current_collapse']) )
+    $GLOBALS['current_collapse'] = 0;
+  else
+    $GLOBALS['current_collapse']++;
+
+  extract(shortcode_atts(array(
+    "title" => '',
+    "type" => 'default',
+    "state" => false
+  ), $atts));
+
+  if ($state == "active")
+    $state = 'in';
+
+  return '<div class="panel panel-' . $type . '"><div class="panel-heading"><h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $GLOBALS['current_collapse'] . '_'. sanitize_title( $title ) .'">' . $title . '</a></h3></div><div id="collapse_' . $GLOBALS['current_collapse'] . '_'. sanitize_title( $title ) .'" class="panel-collapse collapse ' . $state . '"><div class="panel-body">' . do_shortcode($content) . ' </div></div></div>';
 }
 
 /*--------------------------------------------------------------------------------------

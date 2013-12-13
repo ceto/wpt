@@ -7,6 +7,19 @@
       <?php endif; ?>
     >
       <div class="trapezoid"></div>
+      <?php if (is_single() ) : ?>
+      <div class="ferde-row">
+        <div class="left">
+          <p class="title ptitle">News & Events</p>
+          <p class="desc"> <?php get_template_part('templates/entry-meta' ); ?></p>
+          <a href="#" class="btn">Nahere infos here</a>
+        </div>
+        <div class="center"></div>
+        <div class="right">
+         <?php the_title(); ?>
+        </div>
+      </div>
+    <?php else : ?>
       <div class="ferde-row">
         <div class="left">
           <p class="title">Grillfest</p>
@@ -18,5 +31,6 @@
           Lorem ipsum<br />adipisicing elit.
         </div>
       </div>
-      <p class="signo">Bauparzellen * Doppelhauser * Wohnungen</p>
+    <?php endif; ?>
+      <p class="signo">Bauparzellen • Doppelhauser • Wohnungen</p>
     </section>
