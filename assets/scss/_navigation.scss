@@ -62,7 +62,8 @@
   @include clearfix;
   margin:0 0;
   padding:0 0 0 1em;
-  background: $green;
+  background-color: $green;
+  border-bottom: 1px solid #ffffff;
   > li {
     float: left;
     list-style: none;
@@ -131,12 +132,13 @@
 
 // Panel contents
 .panel-body {
-  padding: 15px;
+  padding: 1.5em;
   @include clearfix;
 }
 // Optional heading
 .panel-heading {
-  padding: 10px 15px;
+  padding: 1em 1.5em;
+  background-color: $green;
  //border-bottom: 1px solid transparent;
  // .border-top-radius(@panel-border-radius - 1);
 
@@ -151,7 +153,11 @@
   margin-bottom: 0;
   //font-size: ceil((@font-size-base * 1.125));
   > a {
-    color: inherit;
+    color: #ffffff;
+    &:hover, &:focus {
+      color: $magenta;
+      text-decoration: none;
+    }
   }
 }
 
@@ -167,26 +173,23 @@
     //border-radius: @panel-border-radius;
     overflow: hidden; // crop contents when collapsed
     + .panel {
-      margin-top: 5px;
+      margin-top: 0px;
     }
   }
 
   .panel-heading {
     border-bottom: 0;
     + .panel-collapse .panel-body {
-      border-top: 1px solid gray;
+      border-top: 1px solid $green75;
     }
   }
   .panel-footer {
     border-top: 0;
     + .panel-collapse .panel-body {
-      border-bottom: 1px solid gray;
+      border-bottom: 1px solid $green75;
     }
   }
 }
-
-
-
 
 /********* Off Canvas Navigation *******/
 @include breakpoint ($s2) {

@@ -12,7 +12,7 @@
         <div class="left">
           <p class="title ptitle">News & Events</p>
           <p class="desc"> <?php get_template_part('templates/entry-meta' ); ?></p>
-          <a href="#" class="btn">Nahere infos here</a>
+          <a href="#" class="btn">Nähere Infos hier</a>
         </div>
         <div class="center"></div>
         <div class="right">
@@ -24,11 +24,12 @@
         <div class="left">
           <p class="title">Grillfest</p>
           <p class="desc">am 15.10.2013 bei uns</p>
-          <a href="#" class="btn">Nahere infos here</a>
+          <a href="#" class="btn">Nähere Infos hier</a>
         </div>
         <div class="center"></div>
         <div class="right">
-          Lorem ipsum<br />adipisicing elit.
+          <span class="icon-tram"></span> 18 min, nach Wien<br />
+          <span class="icon-tree"></span> 2 min. ins grün
         </div>
       </div>
     <?php endif; ?>

@@ -124,15 +124,16 @@ body {
     margin-bottom:0.25em;
     background: rgba($magenta, 0.7);
     color:#ffffff;
-    font-size: 1em;
+    font-size: 1.25em;
+    text-transform:uppercase;
     line-height: 50px;
     padding:0 0.5em 0 0;
     font-weight: 700;
-    width:200px;
-    margin-right: -150px;
-  
+    width:240px;
+    margin-right: -190px;
     transition: all .2s ease; 
     span {
+      //font-size:1.5em;
       display: inline-block;
       height:50px;
       width:50px;
@@ -226,11 +227,11 @@ body {
   }
   .right {
     display: table-cell;
-    
+    font-size:1.25em;
     color:#ffffff;
     //width:33%;
     padding:1em;
-    padding-left:8em;
+    padding-left:7em;
     vertical-align: middle;
     @include breakpoint($s2){
       background-color: rgba($magenta,0.7);
@@ -241,6 +242,10 @@ body {
       width:auto;
       margin-right:33%;
       padding:1em 1em;
+    }
+    
+    [class^="icon-"], [class*=" icon-"] {
+     font-size:1.25em; 
     }
 
   }

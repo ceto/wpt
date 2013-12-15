@@ -19,8 +19,8 @@
       <div class="action-block">
         <h2><?php the_title(); ?></h2>
         <div class="action-buttons">
-          <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span>D</span>Download grundris PDF</a>
-          <a href="#" class="btn buy"><span>E</span>Anfrage</a>
+          <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download grundris PDF</a>
+          <a href="#" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
         </div>
         <figure class="entry-floormap">
           <a class="popup-zoom" href="<?php echo get_post_meta($post->ID, '_meta_floormap', true); ?>">

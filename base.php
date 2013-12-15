@@ -14,10 +14,10 @@
   ?>
   <div class="minden">
   <div class="topwrap">
-    <a href="#" class="menu-toggle"><span>X</span></a>
+    <a href="#" class="menu-toggle"><span class="icon-menu"></span></a>
     <section class="btns">
-      <a href="tel:+36707705653" class="phone"><span>T</span>+36 70 7705653</a>
-      <a href="#" class="mail"><span>E</span>Send message</a>
+      <a href="tel:+36707705653" class="phone"><span class="icon-phone"></span>+36 70 7705653</a>
+      <a href="#" class="mail"><span class="icon-mail"></span>Send message</a>
     </section>
 
     <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment'))  ) : ?>

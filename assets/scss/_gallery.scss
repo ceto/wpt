@@ -12,5 +12,8 @@
     @include breakpoint($s1) {
       width:50%;
     }
+    &:hover, &:focus{
+      cursor: -webkit-zoom-in;
+    }
   }
 }
