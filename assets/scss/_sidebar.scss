@@ -4,10 +4,10 @@
     color:$green;
   }
   .widget {
-    width:25%;
+    width:33.33333%;
     float:left;
     padding:1.5em;
-    @include breakpoint($s3){
+    @include breakpoint($s2){
       width:50%;
       &:nth-child(2n+1) {
         clear:left;

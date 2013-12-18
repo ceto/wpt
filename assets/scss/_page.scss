@@ -60,7 +60,10 @@
       font-weight: 700;
       font-size: 0.875em;
       line-height: 1em;
-      display: inline-block;
+      text-align:center;
+      display: block;
+      max-width:6em;
+      margin-top:1em;
       padding:0.5em 0.5em;
       &:hover, &:focus {
         background: $green;

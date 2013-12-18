@@ -16,8 +16,8 @@
   <div class="topwrap">
     <a href="#" class="menu-toggle"><span class="icon-menu"></span></a>
     <section class="btns">
-      <a href="tel:+36707705653" class="phone"><span class="icon-phone"></span>+36 70 7705653</a>
-      <a href="#" class="mail"><span class="icon-mail"></span>Send message</a>
+      <a href="tel:+36707705653" class="phone"><span class="icon-phone"></span>0800 / 22 11 01</a>
+      <a href="#" class="mail"><span class="icon-mail"></span>JETZT ANFRAGEN</a>
     </section>
 
     <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment'))  ) : ?>

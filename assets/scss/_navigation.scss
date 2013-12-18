@@ -14,6 +14,7 @@
     }
   }
   a {
+    position: relative;
     display: block;
     background: rgba($gray75,0.8);
     color:$magenta;
@@ -29,6 +30,27 @@
     }
   }
   
+  .caret {
+    font-family: 'wpt';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    //font-size: 1em;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &:before{
+      content: "\e620";
+      position: absolute;
+      top:0.33333em;
+      right:0;
+    }
+  }
+
   .dropdown {
     position: relative;
     &:hover .dropdown-menu, &:focus .dropdown-menu{
