@@ -16,7 +16,7 @@
   <div class="topwrap">
     <a href="#" class="menu-toggle"><span class="icon-menu"></span></a>
     <section class="btns">
-      <a href="tel:+36707705653" class="phone"><span class="icon-phone"></span>0800 / 22 11 01</a>
+      <a href="tel:0800221101" class="phone"><span class="icon-phone"></span>0800 / 22 11 01</a>
       <a href="#" class="mail"><span class="icon-mail"></span>JETZT ANFRAGEN</a>
     </section>
 

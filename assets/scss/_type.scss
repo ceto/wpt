@@ -105,4 +105,20 @@ h1,h2,h3 {
   }
 }
 
+.backtotheblog {
+  background-color: $magenta;
+  color:white;
+  display: inline-block;
+  padding:0.333em 0.5em;
+  text-align: center;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size: 1.25em;
+  line-height: 1.125em;
+  &:hover, &:focus{
+    text-decoration: none;
+    background-color: $green;
+  }
+}
+
 

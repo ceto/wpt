@@ -203,7 +203,7 @@ if (is_admin()){
 
 
 
-/********* Custom MetaBoxes for Regular Pages ****************/
+/********* Custom MetaBoxes for Regular Pages and Posts ****************/
 
 
 add_filter( 'cmb_meta_boxes', 'cmb_page_metaboxes' );
@@ -215,7 +215,7 @@ function cmb_page_metaboxes( array $meta_boxes ) {
   $meta_boxes['page_metabox'] = array(
     'id'         => 'page_metabox',
     'title'      => __( 'Additional Content', 'root' ),
-    'pages'      => array( 'page', ), // Post type
+    'pages'      => array( 'page', 'post'), // Post type
     'context'    => 'normal',
     'priority'   => 'high',
     'show_names' => true, // Show field names on the left
@@ -239,7 +239,7 @@ function cmb_page_metaboxes( array $meta_boxes ) {
       ),
       array(
         'name'    => __( 'Content Below', 'root' ),
-        'desc'    => __( 'Additional content. Below the main content (optional)', 'root' ),
+        'desc'    => __( 'Additional content. Below the main content, or left column in posts (optional)', 'root' ),
         'id'      => $prefix . 'test_wysiwyg',
         'type'    => 'wysiwyg',
       ),

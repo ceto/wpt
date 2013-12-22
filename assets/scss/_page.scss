@@ -5,7 +5,6 @@
 
 }
 
-
 .post {
   @include clearfix;
   margin:0 auto 3em auto;
@@ -58,8 +57,8 @@
       color:#ffffff;
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 0.875em;
-      line-height: 1em;
+      font-size: 1em;
+      line-height: 1.125em;
       text-align:center;
       display: block;
       max-width:6em;
@@ -139,23 +138,11 @@
       font-size: 2em;
     }
 
-    .entry-content {
+    .entry-content, .entry-add {
 
       margin-top:1em;
       margin-left:0;
-      -moz-column-count:2;
-      -moz-column-gap:1.5em;
-      -webkit-column-count:2;
-      -webkit-column-gap:1.5em;
-      column-count:2;
-      column-gap:1.5em;
       @include breakpoint($s2) {
-        -moz-column-count:1;
-        -moz-column-gap:0;
-        -webkit-column-count:1;
-        -webkit-column-gap:0;
-        column-count:1;
-        column-gap:0;
         margin-top:0;
       }
     
@@ -167,6 +154,33 @@
 
       }
     }
+  }
+  .post.szimpla{
+    max-width: $s2;
+    margin:0 auto;
+  }
+  .post.dupla {
+    
+    .entry-content{
+      width:50%;
+      float:left;
+      padding-left:0.75em;
+      @include breakpoint($s2) {
+        width:auto;
+        float:none;
+        padding-left:0;
+      }
+    }
+    .entry-add{
+      width:50%;
+      float:left;
+      padding-right:0.75em;
+      @include breakpoint($s2) {
+        width:auto;
+        float:none;
+        padding-right:0;
+      }
+    }  
   }
 
   .entry-banner{

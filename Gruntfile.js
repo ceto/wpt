@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
          style: 'nested',
-         noCache: true,
+         //noCache: true,
          sourcemap: true
         },
         files: {

@@ -1,4 +1,4 @@
-    <section class="advert-block" 
+    <section class="nagyfej-block" 
       <?php if ( (is_single() || is_page()) && has_post_thumbnail() ) :  ?>
       <?php
         $fimi = (is_page())?wp_get_attachment_image_src(get_post_thumbnail_id(),'banner169'):wp_get_attachment_image_src(get_post_thumbnail_id(),'banner21');
