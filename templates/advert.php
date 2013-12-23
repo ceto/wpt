@@ -12,7 +12,7 @@
         <div class="left">
           <p class="title ptitle">News & Events</p>
           <p class="desc"> <?php get_template_part('templates/entry-meta' ); ?></p>
-          <a href="#" class="btn"><span>NÄHERE INFOS HERE</span></a>
+          <a href="#" class="btn"><span>NÄHERE INFOS HIER</span></a>
         </div>
         <div class="center"></div>
         <div class="right">
@@ -24,7 +24,7 @@
         <div class="left">
           <p class="title">Grillfest</p>
           <p class="desc">am 15.10.2013 bei uns</p>
-          <a href="#" class="btn"><span>NÄHERE INFOS HERE</span></a>
+          <a href="#" class="btn"><span>NÄHERE INFOS HIER</span></a>
         </div>
         <div class="center"></div>
         <div class="right">
