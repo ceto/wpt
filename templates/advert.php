@@ -11,7 +11,7 @@
       <div class="ferde-row">
         <div class="left">
           <p class="title ptitle">News & Events</p>
-          <p class="desc"> <?php get_template_part('templates/entry-meta' ); ?></p>
+          <p class="desc"><?php get_template_part('templates/entry-meta' ); ?></p>
           <a href="#" class="btn"><span>NÄHERE INFOS HIER</span></a>
         </div>
         <div class="center"></div>
@@ -22,9 +22,9 @@
     <?php else : ?>
       <div class="ferde-row">
         <div class="left">
-          <p class="title">Grillfest</p>
-          <p class="desc">am 15.10.2013 bei uns</p>
-          <a href="#" class="btn"><span>NÄHERE INFOS HIER</span></a>
+          <p class="title">Aktuelles</p>
+          <p class="desc">&nbsp;</p>
+          <a href="<?php echo get_permalink(16);  ?>" class="btn"><span>NÄHERE INFOS HIER</span></a>
         </div>
         <div class="center"></div>
         <div class="right">
