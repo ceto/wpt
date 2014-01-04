@@ -282,6 +282,30 @@
 
 }
 
+/***************** Bauparzellen Page *****************/
+.page-template-tmpl-bauparzellen-php {
+  .page-header {
+    margin-left: 260px;
+    margin-top: 4.5em;
+    margin-right:4em;
+    @include breakpoint($s2) {
+      margin-left: 0;
+      margin-top:4em;
+      margin-right:0;
+    }
+  }
+  .pri-cont {
+    margin-left: 260px;
+    margin-right: 4em;
+    @include breakpoint($s2) {
+      margin-left: 0;
+      margin-right:0;
+    }
+  }
+}
+
+
+
 
 
 /***************** Single Apartment Page *****************/

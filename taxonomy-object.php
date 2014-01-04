@@ -1,7 +1,8 @@
 <?php
   //global $query_string;
-  query_posts( $query_string . '&orderby=date&order=ASC' );
+  query_posts( $query_string . '&orderby=date&order=ASC&posts_per_page=-1' );
   $term_id = term_exists( get_query_var( 'term' ) );
+  //$term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
 ?>
 
 <div class="head-lead">
@@ -27,17 +28,22 @@
     data-status="<?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>"
   >
     <span class="data-cell title">
-      <?php the_title(); ?>
+      Top <?php the_title(); ?>
     </span>
-    <span class="data-cell status status-<?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>">
-      <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>
+    <span class="data-cell lage"> 
+        <?php echo get_post_meta($post->ID, '_meta_lage', true ); ?>
+    </span>
+    <span class="data-cell wnf"> 
+        <?php echo get_post_meta($post->ID, '_meta_wnf', true ); ?> m<sup>2</sup>
     </span>
     <span class="data-cell price">
        <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR
     </span>
-    <span class="data-cell wohn"> 
-        <?php echo get_post_meta($post->ID, '_meta_wohn', true ); ?> m<sup>2</sup>
+
+    <span class="data-cell status status-<?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>">
+      <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>
     </span>
+
   </a><!-- /.data-row -->
 <?php endwhile; ?>
 </div>

@@ -29,6 +29,12 @@
       background: rgba($magenta,0.8);
     }
   }
+
+  li.active > a {
+    background-color: rgba($green,0.8);
+    color:#ffffff;
+    cursor: default;
+  }
   
   .caret {
     font-family: 'wpt';
@@ -74,7 +80,17 @@
   }
 }
 
-
+.archive, .single-apartment {
+  .nav-main .menu-news-events a {
+    background: rgba($gray75,0.8);
+    color:$magenta;
+    cursor:pointer;
+    &:hover, &:focus{
+      color:#ffffff;
+      background: rgba($magenta,0.8);
+    }
+  }
+}
 
 // Tabs
 // -------------------------

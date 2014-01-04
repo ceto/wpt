@@ -1,10 +1,22 @@
+<?php $obj_terms = wp_get_object_terms($post->ID, 'object', array (
+   'orderby' => 'date',
+   'order' => 'ASC',
+   'fields' => 'all' 
+  )
+);
+$termi=$obj_terms[0]; 
+?> 
 <?php while (have_posts()) : the_post(); ?>
   <section class="chooser">
     <img src="<?php echo get_template_directory_uri();  ?>/assets/img/overbanner.jpg" alt="Chooser">
   </section>
   <article <?php post_class(); ?>>
     <header>
-      <h1 class="entry-title">Navigator<small><?php the_title(); ?></small></h1>
+      <h1 class="entry-title">Navigator<small>
+        <a href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):get_term_link($termi->slug, 'object'); ?>">
+                  <?php echo ($termi->parent!=0)?'Etasje '.$termi->name:$termi->name; ?>
+        </a><span class="icon icon-arrow-right"></span>
+        Top <?php the_title(); ?></small></h1>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
@@ -17,7 +29,7 @@
         </a>
       </figure>
       <div class="action-block">
-        <h2><?php the_title(); ?></h2>
+        <h2>Top <?php the_title(); ?></h2>
         <div class="action-buttons">
           <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download grundris PDF</a>
           <a href="#" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
@@ -38,15 +50,12 @@
       </ul>
       <div class="tab-content">
         <div id="custom-tab-0-lorem-ipsum" class="tab-pane fade active in data-list">
-          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wohn', true ); ?> m<sup>2</sup></p>
+          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></p>
           <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR.</p>
           <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
-          <p class="data-item"><span>Raumaufteilung</span> <?php echo get_post_meta( $post->ID, '_meta_raum', true ); ?></p>
-          
-          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wohn', true ); ?> m<sup>2</sup></p>
+          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></p>
           <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR.</p>
           <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
-          <p class="data-item"><span>Raumaufteilung</span> <?php echo get_post_meta( $post->ID, '_meta_raum', true ); ?></p>
 
 
         </div>

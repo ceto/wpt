@@ -73,12 +73,12 @@ h1,h2,h3 {
     text-decoration: none;
     background-color: $gray50;
   }
-  &.status-available  {
+  &.status-frei  {
     &:hover, &:focus {
       background-color: rgba($greenb,0.6);
     }
   }
-  &.status-sold  {
+  &.status-verkauft  {
     &:hover, &:focus {
       background-color: rgba($red,0.4);
     }
@@ -95,7 +95,7 @@ h1,h2,h3 {
     text-align: right;
     min-width: 6em;
   }
-  &.wohn {
+  &.wnf {
     text-align: right;
     text-transform: none;
     min-width: 6em;

@@ -1,0 +1,26 @@
+.bau-chooser {
+  max-width: 100%;
+  width: auto\9;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  //background-color: $gray50;
+}
+.bau-data{
+  display: none;
+
+}
+.white-popup {
+  position: relative;
+  background: #ffffff;
+  padding: 14px 20px;
+  width: auto;
+  max-width: 320px;
+  margin: 20px auto;
+  h3 {
+    margin:0 0;
+    font-size: 2em;
+
+  }
+}

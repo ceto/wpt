@@ -4,8 +4,112 @@
  */
 
 
+/********* Custom Post Types for Bauparzellen Management ****************/
 
 
+/**
+ * Apartment Definition
+*/
+function create_bauparzellen() {
+  $labels = array(
+    'name' => 'Bauparzellens',
+    'singular_name' => 'Bauparzellen',
+    'add_new' => 'Add New',
+    'add_new_item' => 'Add New Bauparzellen',
+    'edit_item' => 'Edit Bauparzellen',
+    'new_item' => 'New Bauparzellen',
+    'all_items' => 'All Bauparzellens',
+    'view_item' => 'View Bauparzellen',
+    'search_items' => 'Search Bauparzellens',
+    'not_found' =>  'No Bauparzellens found',
+    'not_found_in_trash' => 'No Bauparzellens found in Trash', 
+    'parent_item_colon' => '',
+    'menu_name' => 'Bauparzellen'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true, 
+    'show_in_menu' => true, 
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'bauparzellen' ),
+    'capability_type' => 'post',
+    'has_archive' => true, 
+    'hierarchical' => false,
+    'menu_position' => null,
+    'supports' => array( 'title'  )
+  ); 
+
+  register_post_type( 'bauparzellen', $args );
+}
+add_action( 'init', 'create_bauparzellen' ); 
+
+/********* END OF Custom Post Types for Bauparzellen Management ****************/
+
+/********* Custom MetaBoxes for Bauparzellen Management ****************/
+
+/**
+ * Apartment Metaboxes
+*/
+add_filter( 'cmb_meta_boxes', 'cmb_bauparzellen' );
+function cmb_bauparzellen( array $meta_boxes ) {
+
+  // Start with an underscore to hide fields from custom fields list
+  $prefix = '_meta_';
+
+  $meta_boxes[] = array(
+    'id'         => 'bmeta',
+    'title'      => 'Additional details for this Bauparzellen',
+    'pages'      => array( 'bauparzellen'), // Post type
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'show_names' => true, // Show field names on the left
+    'fields'     => array(
+
+    array(
+      'name' => __('Status'),
+      'id'   => $prefix . 'status',
+      'type' => 'radio_inline',
+      'options' => array(
+          array('name' => 'Available', 'value' => 'available',),
+          array('name' => 'Reserved', 'value' => 'reserved',),
+          array('name' => 'Sold', 'value' => 'sold',)
+      )
+    ),
+
+    array(
+        'name' => 'Size',
+        'id'   => $prefix . 'size',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Price',
+        'id'   => $prefix . 'price',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Link',
+        'id'   => $prefix . 'link',
+        'type' => 'text_medium',
+    ),
+
+    array(
+        'name' => 'SVG Definition',
+        'desc' => 'Experimental! Do not change it!',
+        'id'   => $prefix . 'svgdata',
+        'type' => 'textarea_small',
+    ),
+   
+    ),
+  );
+
+
+  return $meta_boxes;
+}
+
+/********* End of Custom MetaBoxes for Bauparzellen Management ****************/
 
 /********* Custom Post Types for Apartment Management ****************/
 
@@ -77,35 +181,66 @@ function cmb_apartment( array $meta_boxes ) {
       'id'   => $prefix . 'status',
       'type' => 'radio_inline',
       'options' => array(
-          array('name' => 'Available', 'value' => 'available',),
+          array('name' => 'Frei', 'value' => 'frei',),
           array('name' => 'Reserved', 'value' => 'reserved',),
-          array('name' => 'Sold', 'value' => 'sold',)
+          array('name' => 'Verkauft', 'value' => 'verkauft',)
+      )
+    ),
+    array(
+      'name' => __('Lage'),
+      'id'   => $prefix . 'lage',
+      'type' => 'radio_inline',
+      'options' => array(
+          array('name' => 'EG', 'value' => 'EG',),
+          array('name' => '1. OG', 'value' => '1. OG',),
+          array('name' => '2. OG', 'value' => '2. OG',),
+          array('name' => '3. OG', 'value' => '3. OG',),
+          array('name' => '4. OG', 'value' => '4. OG',),
+          array('name' => '5. OG', 'value' => '5. OG',),
+          array('name' => '6. OG', 'value' => '6. OG',)
       )
     ),
 
     array(
         'name' => 'Wohnfläche',
-        'id'   => $prefix . 'wohn',
+        'id'   => $prefix . 'wnf',
         'type' => 'text_small',
     ),
     array(
-        'name' => 'Eigennutzer Kaufpreis',
+        'name' => 'Balkon',
+        'id'   => $prefix . 'balkon',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Terasse',
+        'id'   => $prefix . 'terasse',
+        'type' => 'text_small',
+    ),
+    array(
+        'name' => 'Garten',
+        'id'   => $prefix . 'garten',
+        'type' => 'text_small',
+    ),
+    
+    array(
+        'name' => 'Kaufpreis',
         'id'   => $prefix . 'price',
         'type' => 'text_small',
     ),
+    
     array(
-        'name' => 'Baujahr',
-        'id'   => $prefix . 'bau',
+        'name' => 'TG',
+        'id'   => $prefix . 'tg',
         'type' => 'text_small',
     ),
     array(
-        'name' => 'Ausrichtung',
-        'id'   => $prefix . 'aus',
-        'type' => 'text_small',
+        'name' => 'AP',
+        'id'   => $prefix . 'ap',
+        'type' => 'text_medium',
     ),
     array(
-        'name' => 'Raumaufteilung',
-        'id'   => $prefix . 'raum',
+        'name' => 'Keller',
+        'id'   => $prefix . 'keller',
         'type' => 'text_medium',
     ),
 
@@ -190,11 +325,11 @@ if (is_admin()){
     'use_with_theme' => '/wp-content/themes/wpt/lib/tmc'          //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
   );
   $my_meta =  new Tax_Meta_Class($config);
+  //$my_meta->addRadio($prefix.'status',array('radiokey1'=>'Free','radiokey2'=>'Sold','radiokey3'=>'Reserved'),array('name'=> __('Status','roots'), 'std'=> array('radiokey1')));
+  //$my_meta->addText($prefix.'area',array('name'=> __('Area','roots')));
+  $my_meta->addTextarea($prefix.'svgdata',array('name'=> __('SVG Data','roots')));
+  $my_meta->addImage($prefix.'image',array('name'=> __('Image of this item ','roots')));
   $my_meta->addWysiwyg($prefix.'content',array('name'=> __('Content editor ','tax-meta')));
-  $my_meta->addTextarea($prefix.'svgdata',array('name'=> __('SVG Data','tax-meta')));
-  $my_meta->addText($prefix.'imgurl',array('name'=> __('Image','tax-meta')));
-  $my_meta->addImage($prefix.'image',array('name'=> __('Image of this item ','tax-meta')));
-  //$my_meta->addImage($prefix.'floorplanke',array('name'=> __('Floor Plan ','tax-meta')));
   //$my_meta->addFile($prefix.'attach',array('name'=> __('File Attachement ','tax-meta')));
 
   //Finish Meta Box Decleration
@@ -429,11 +564,6 @@ function bs_tab( $atts, $content = null ) {
 
   return '<div id="custom-tab-' . $GLOBALS['tabs_count'] . '-'. sanitize_title( $title ) .'" class="tab-pane fade ' . $state . '">'. do_shortcode( $content ) .'</div>';
 }
-
-
-
-
-
 
 
 // add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
