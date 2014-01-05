@@ -6,6 +6,8 @@
   border: 0;
   -ms-interpolation-mode: bicubic;
   //background-color: $gray50;
+  background: url(../img/masterplan.gif) no-repeat left top transparent;
+  background-size: 100% auto;
 }
 .bau-data{
   display: none;
@@ -23,4 +25,32 @@
     font-size: 2em;
 
   }
+}
+
+
+.tooltip{
+  margin:8px;
+  padding:14px 20px 0;
+  max-width: 320px;
+  border:1px solid $magenta;
+  background-color:#ffffff;
+  position: absolute;
+  z-index: 2;
+  h3 {
+    margin:0 0;
+    font-size: 2em;
+
+  }
+}
+
+#pattern {
+  height:0;
+  width:0;
+  position: absolute;
+}
+#eap-400{
+  //fill: url(#kicsihaziko);
+}
+path[fill="#c1c1c1"] {
+  //fill: url(#kicsihaziko);  
 }

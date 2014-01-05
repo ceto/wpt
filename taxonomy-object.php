@@ -28,7 +28,7 @@
     data-status="<?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>"
   >
     <span class="data-cell title">
-      Top <?php the_title(); ?>
+      <?php the_title(); ?>
     </span>
     <span class="data-cell lage"> 
         <?php echo get_post_meta($post->ID, '_meta_lage', true ); ?>

@@ -4,7 +4,7 @@
    'fields' => 'all' 
   )
 );
-$termi=$obj_terms[0]; 
+//$termi=$obj_terms[0]; 
 ?> 
 <?php while (have_posts()) : the_post(); ?>
   <section class="chooser">
@@ -13,10 +13,12 @@ $termi=$obj_terms[0];
   <article <?php post_class(); ?>>
     <header>
       <h1 class="entry-title">Navigator<small>
+        <?php foreach ($obj_terms as $termi) {  ?>
         <a href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):get_term_link($termi->slug, 'object'); ?>">
-                  <?php echo ($termi->parent!=0)?'Etasje '.$termi->name:$termi->name; ?>
+                  <?php echo ($termi->parent!=0)?'Seite '.$termi->name:$termi->name; ?>
         </a><span class="icon icon-arrow-right"></span>
-        Top <?php the_title(); ?></small></h1>
+        <?php } ?>
+        <?php the_title(); ?></small></h1>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
@@ -29,7 +31,7 @@ $termi=$obj_terms[0];
         </a>
       </figure>
       <div class="action-block">
-        <h2>Top <?php the_title(); ?></h2>
+        <h2><?php the_title(); ?></h2>
         <div class="action-buttons">
           <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download grundris PDF</a>
           <a href="#" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
@@ -44,26 +46,34 @@ $termi=$obj_terms[0];
 
     <section class="details">
       <ul class="nav nav-tabs" id="custom-tabs-65">
-        <li class="active"><a href="#custom-tab-0-lorem-ipsum" data-toggle="tab">Details</a></li>
-        <li><a href="#custom-tab-0-integer-posuere-erat" data-toggle="tab">Integer</a></li>
-        <li><a href="#custom-tab-0-dapibus-posuere" data-toggle="tab">Dapibus</a></li>
+        <li class="active"><a href="#tab-facts" data-toggle="tab">Facts</a></li>
+        <li><a href="#tab-lage" data-toggle="tab">Lage</a></li>
       </ul>
       <div class="tab-content">
-        <div id="custom-tab-0-lorem-ipsum" class="tab-pane fade active in data-list">
+        <div id="tab-facts" class="tab-pane fade active in data-list">
           <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></p>
-          <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR.</p>
+          <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR</p>
           <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
-          <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></p>
-          <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR.</p>
-          <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
-
-
+          <p class="data-item"><span>Lage</span> <?php echo get_post_meta( $post->ID, '_meta_lage', true ); ?></p>
+          <p class="data-item"><span>Balkon</span> <?php echo get_post_meta( $post->ID, '_meta_balkon', true ); ?> m<sup>2</sup></p>
+          <?php if (get_post_meta( $post->ID, '_meta_terasse', true ) ) : ?>
+          <p class="data-item"><span>Terasse</span> <?php echo get_post_meta( $post->ID, '_meta_terasse', true ); ?> m<sup>2</sup></p>
+          <?php endif; ?>          
+          <?php if (get_post_meta( $post->ID, '_meta_garten', true ) ) : ?>
+          <p class="data-item"><span>Garten</span> <?php echo get_post_meta( $post->ID, '_meta_garten', true ); ?> m<sup>2</sup></p>
+          <?php endif; ?>
+          <?php if (get_post_meta( $post->ID, '_meta_tg', true ) ) : ?>
+            <p class="data-item"><span>TG</span> <?php echo get_post_meta( $post->ID, '_meta_tg', true ); ?> m<sup>2</sup></p>
+          <?php endif ?>
+          <?php if (get_post_meta( $post->ID, '_meta_ap', true ) ) : ?>
+            <p class="data-item"><span>AP</span> <?php echo get_post_meta( $post->ID, '_meta_ap', true ); ?> m<sup>2</sup></p>
+          <?php endif; ?>
+          <?php if (get_post_meta( $post->ID, '_meta_keller', true ) ) : ?>
+            <p class="data-item"><span>Keller</span> <?php echo get_post_meta( $post->ID, '_meta_keller', true ); ?> m<sup>2</sup></p>
+          <?php endif; ?>
         </div>
-        <div id="custom-tab-0-integer-posuere-erat" class="tab-pane fade ">
+        <div id="tab-lage" class="tab-pane fade ">
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        </div>
-        <div id="custom-tab-0-dapibus-posuere" class="tab-pane fade ">
-        <p>Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
         </div>
       </div>
     </section>  

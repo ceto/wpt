@@ -122,18 +122,13 @@ jQuery(document).ready(function($) {
 
 if ( $('#bau-chooser').length > 0 ) {
     var szelesseg = $('#bau-chooser').width();
-    if ($('#bau-chooser.canvas-overview').length > 0) {
-      var origwidth=842;
-      var origheight=1474;
-    } else {
-      var origwidth=842;
-      var origheight=1474;
-    }
+    var origwidth=842;
+    var origheight=1474;
     var paper = new Raphael(document.getElementById('bau-chooser'), origwidth, origheight);
     var origratio=origheight/origwidth;
 }
 
-function redraw_canvas() {
+function bredraw_canvas() {
 
   paper.clear();
   szelesseg = $('.bau-chooser').width();
@@ -165,11 +160,13 @@ function redraw_canvas() {
 
     items[index].attr(
       {
-        fill: (menuitem.attr('data-status')==='available')?'#a5da64':(menuitem.attr('data-status')==='sold')?'#c1c1c1':'#9c1a79',
+        //fill: (menuitem.attr('data-status')==='available')?'#a5da64':(menuitem.attr('data-status')==='sold')?'#c1c1c1':'#9c1a79',
+        
+        fill: (menuitem.attr('data-status')==='available')?'#aadf6a':(menuitem.attr('data-status')==='sold')?'transparent':'transparent',
         opacity: 1,
-        stroke: '#ffffff',
+        stroke: 'transparent',
         "stroke-width": 1,
-        title: text
+        //title: text
 
       }
     );
@@ -178,46 +175,70 @@ function redraw_canvas() {
 
     items[index].data("url", $(this).attr('data-url'));
 
-    items[index].click(function () {
-    //  window.location=(items[index].data('url'));
-      $.magnificPopup.open({
-        items: {
-          src: '<div class="white-popup">'+
-            '<h3>'+menuitem.attr('data-name')+'</h3>'+
-            '<p>'+
-            '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
-            '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
-            '</p>'+
-            '</div>'
-        
-        },
-        type: 'inline'
+    
+    if (menuitem.attr('data-status')!=='sold') {
 
-        // You may add options here, they're exactly the same as for $.fn.magnificPopup call
-        // Note that some settings that rely on click event (like disableOn or midClick) will not work here
-      }, 0);
+      items[index].click(function () {
+      //  window.location=(items[index].data('url'));
+        $.magnificPopup.open({
+          items: {
+            src: '<div class="white-popup">'+
+              '<h3>'+menuitem.attr('data-name')+'</h3>'+
+              '<p>'+
+              '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
+              '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+              '</p>'+
+              '</div>'
+          
+          },
+          type: 'inline'
+        }, 0);
+      });
 
-      //$.magnificPopup.close();
+    
+      items[index].node.onmousemove = function(event){
+        var tooltipX = event.pageX - 8;
+        var tooltipY = event.pageY + 8;
+        $('div.tooltip').css({top: tooltipY, left: tooltipX});
+      };
 
-    });
-    items[index].node.onmouseover = function(){
-      this.style.cursor = 'pointer';
-    };
+      items[index].node.onmouseenter = function(event){
+        this.style.cursor = 'pointer';
+        $('div.tooltip').remove();
+        $('<div class="tooltip">'+
+              '<h3>'+menuitem.attr('data-name')+'</h3>'+
+              '<p>'+
+              '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
+              '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+              '</p>'+
+              '</div>').appendTo('body');
+        var tooltipX = event.pageX - 8;
+        var tooltipY = event.pageY + 8;
+        $('div.tooltip').css({top: tooltipY, left: tooltipX});
+
+      };
+
+      items[index].node.onmouseleave = function(event){
+        $('div.tooltip').remove();
+
+      };
+
+    }
 
     items[index].hover(
-      function(){
+      function(event){
         items[index].attr(
         {
-          opacity: 0.75,
+          opacity: 0,
         });
         menuitem.toggleClass('active');
       },
       function(){
-          items[index].attr(
-          {
-            opacity: 1,
-          });
-          menuitem.toggleClass('active');
+        items[index].attr(
+        {
+          opacity: 1,
+        });
+        menuitem.toggleClass('active');
       }
     );
 
@@ -225,7 +246,7 @@ function redraw_canvas() {
       function(){
         items[index].attr(
         {
-          opacity: 0.75,
+          opacity: 0,
         });
       },
       function(){
@@ -242,26 +263,13 @@ function redraw_canvas() {
 
 $(document).ready(function() {
   if ( $('.bau-chooser').length > 0 ) {
-    redraw_canvas();
-    $(window).resize(redraw_canvas);
+    bredraw_canvas();
+    $(window).resize(bredraw_canvas);
   }
 });
 
-$(document).ready(function()
-{
-    $('path, text').qtip(
-        {
-            content: {
-                text: 'example of SVG support'
-            },
-            position: {
-                target: 'mouse',
-            adjust: {
-                mouse: true,
-                y: +20
-        }
-        }
-    });
+$(document).ready(function(){
+
 });
 
 
