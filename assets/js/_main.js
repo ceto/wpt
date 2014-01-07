@@ -117,6 +117,130 @@ jQuery(document).ready(function($) {
   });
 });
 
+/********* Apartment Part ********/
+
+if ( $('#apartment-chooser').length > 0 ) {
+    var szelesseg = $('#apartment-chooser').width();
+    var origwidth=1280;
+    var origheight=449;
+    var paper = new Raphael(document.getElementById('apartment-chooser'), origwidth, origheight);
+    var origratio=origheight/origwidth;
+}
+
+
+function aredraw_canvas() {
+
+  paper.clear();
+  szelesseg = $('.apartment-chooser').width();
+  magassag = $('.apartment-chooser').height();
+
+  paper.setSize(szelesseg, szelesseg*origratio);
+  paper.setViewBox(0, 0, origwidth, origheight, true);
+
+  var items = [];
+  var text ='';
+
+  $('.data-row').each(function(index) {
+    var menuitem = $(this);
+
+    items[index] = paper.path(menuitem.attr('data-svg'));
+
+            
+    items[index].node.id = 'e'+menuitem.attr('id');
+
+    text=menuitem.attr('data-name')+"\nWnf: "+menuitem.attr('data-wnf')+"m2,\nPrize: "+menuitem.attr('data-price');
+    
+    items[index].attr(
+      {
+        fill: (menuitem.attr('data-status')==='frei')?'#a5da64':(menuitem.attr('data-status')==='verkauft')?'#9c1a79':'#c1c1c1',
+        opacity: 0,
+        stroke: 'transparent',
+        "stroke-width": 1,
+        //title: text
+
+      }
+    );
+    
+
+
+    items[index].data("url", $(this).attr('data-url'));
+
+    
+    items[index].click(function () {
+      window.location=(items[index].data('url'));
+    });
+
+
+    items[index].node.onmousemove = function(event){
+      var tooltipX = event.pageX - 8;
+      var tooltipY = event.pageY + 8;
+      $('div.tooltip').css({top: tooltipY, left: tooltipX});
+    };
+
+    items[index].node.onmouseenter = function(event){
+      this.style.cursor = 'pointer';
+      $('div.tooltip').remove();
+      $('<div class="tooltip">'+
+            '<h3>'+menuitem.attr('data-name')+
+            ((menuitem.attr('data-status')==='verkauft')?' - Verkauft':'')+
+            '</h3>'+
+            '<p>'+
+            '<span class="size">Wohnfläche: '+menuitem.attr('data-wnf')+' m<sup>2</sup></span><br/>'+
+            '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+            '</p>'+
+            '</div>').appendTo('body');
+      var tooltipX = event.pageX - 8;
+      var tooltipY = event.pageY + 8;
+      $('div.tooltip').css({top: tooltipY, left: tooltipX});
+
+    };
+
+    items[index].node.onmouseleave = function(event){
+      $('div.tooltip').remove();
+
+    };
+
+
+    items[index].hover(
+      function(event){
+        items[index].attr(
+        {
+          opacity: 0.5,
+        });
+        menuitem.toggleClass('active');
+      },
+      function(){
+        items[index].attr(
+        {
+          opacity: 0,
+        });
+        menuitem.toggleClass('active');
+      }
+    );
+
+    menuitem.hover(
+      function(){
+        items[index].attr(
+        {
+          opacity: 0.5,
+        });
+      },
+      function(){
+          items[index].attr(
+          {
+            opacity: 0,
+          });
+      }
+    );
+
+
+  });
+}
+
+
+
+
+
 
 /********* Bauparzellen Part ********/
 
@@ -155,6 +279,7 @@ function bredraw_canvas() {
         text="Verkauft";
       } else {
         text=menuitem.attr('data-name');
+
       }
     }
 
@@ -179,20 +304,26 @@ function bredraw_canvas() {
     if (menuitem.attr('data-status')!=='sold') {
 
       items[index].click(function () {
-      //  window.location=(items[index].data('url'));
-        $.magnificPopup.open({
-          items: {
-            src: '<div class="white-popup">'+
-              '<h3>'+menuitem.attr('data-name')+'</h3>'+
-              '<p>'+
-              '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
-              '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
-              '</p>'+
-              '</div>'
-          
-          },
-          type: 'inline'
-        }, 0);
+      
+        if ( menuitem.attr('data-status')==='available' ) {
+          $.magnificPopup.open({
+            items: {
+              src: '<div class="white-popup">'+
+                '<h3>'+menuitem.attr('data-name')+'</h3>'+
+                '<p>'+
+                '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
+                '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+                '</p>'+
+                '</div>'
+            
+            },
+            type: 'inline'
+          }, 0);
+        } else {
+          window.location=(menuitem.attr('data-link'));
+        }
+
+
       });
 
     
@@ -262,10 +393,17 @@ function bredraw_canvas() {
 }
 
 $(document).ready(function() {
-  if ( $('.bau-chooser').length > 0 ) {
+  if ( $('#bau-chooser').length > 0 ) {
     bredraw_canvas();
     $(window).resize(bredraw_canvas);
   }
+  
+  if ( $('#apartment-chooser').length > 0 ) {
+    aredraw_canvas();
+    $(window).resize(aredraw_canvas);
+  }
+
+
 });
 
 $(document).ready(function(){

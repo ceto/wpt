@@ -20,7 +20,7 @@
       <a href="#" class="mail"><span class="icon-mail"></span>JETZT ANFRAGEN</a>
     </section>
 
-    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment')) && (!is_page_template('tmpl-bauparzellen.php'))  ) : ?>
+    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment')) && (!is_page_template('tmpl-bauparzellen.php')) && (!is_page_template('taxonomy-object.php'))  ) : ?>
     <?php get_template_part('templates/advert'); ?>
     <?php endif; ?>
 

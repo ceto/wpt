@@ -10,15 +10,24 @@ module.exports = function(grunt) {
          sourcemap: true
         },
         files: {
-          'assets/css/main.min.css': 'assets/scss/main.scss'
+          'assets/css/main.css': 'assets/scss/main.scss'
         }
       }
     },
+    // autoprefixer: {
+    //   dist: {
+    //     files: {
+    //       'assets/css/main.min.css': 'assets/css/main.min.css'
+    //     }
+    //   }
+    // },
     autoprefixer: {
       dist: {
-        files: {
-          'assets/css/main.min.css': 'assets/css/main.min.css'
-        }
+        options: {
+            map: true
+        },
+        src: 'assets/css/main.css',
+        dest: 'assets/css/main.min.css'
       }
     },
     jshint: {

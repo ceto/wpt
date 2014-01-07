@@ -320,7 +320,16 @@
     @include breakpoint($s2) {
       //padding:0;
     }
-        
+    header{
+      @include clearfix;
+    }
+    .entry-title{
+      float:left;
+    }
+    .ch-back {
+      float:right;
+      margin-top:1.25em;
+    }    
   
     .details {
       margin-top:1.5em;

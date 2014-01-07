@@ -74,12 +74,12 @@ h1,h2,h3 {
     background-color: $gray50;
   }
   &.status-frei  {
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
       background-color: rgba($greenb,0.6);
     }
   }
   &.status-verkauft  {
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
       background-color: rgba($red,0.4);
     }
   }

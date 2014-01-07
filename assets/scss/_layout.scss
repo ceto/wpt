@@ -277,8 +277,6 @@ body {
     color:#ffffff;
     text-decoration: none;
     padding:0.666666em 0.5em;
-      
-    -webkit-transform: rotate(-2deg) translateY(-0.55em); 
     transform: rotate(-2deg) translateY(-0.55em);
 
     @include breakpoint($s2){
@@ -288,10 +286,8 @@ body {
 
     span {
       display: block;
-      -webkit-transform: rotate(2deg) translateY(0.1em); 
       transform: rotate(2deg) translateY(0.1em);
       @include breakpoint($s2){
-        -webkit-transform:none; 
         transform: none;
       }
     }
@@ -317,8 +313,6 @@ body {
   margin-top:0em;
   padding:0 0;
   text-shadow: 0px 0px 1px $gray125;
-
-  -webkit-transform: rotate(-2deg) translateY(-0.125em); 
   transform: rotate(-2deg) translateY(-0.125em);
 
   @include breakpoint($s3){
@@ -329,7 +323,6 @@ body {
     position:relative;
     margin-top: 0.75em;
     font-size:1.5em;
-    -webkit-transform:none; 
     transform: none;
   }
   @include breakpoint($s1){
@@ -359,7 +352,7 @@ body {
 
 }
 .csimg {
-  margin:2em 0;
+
 }
 
 

@@ -16,7 +16,7 @@
     <p id="ap-<?php echo $post->ID; ?>" 
       class="datacont ap-list status-<?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>"
       data-svg="<?php echo get_post_meta( $post->ID, '_meta_svgdata', true ); ?>"
-      data-url="<?php the_permalink(); ?>"
+      data-link="<?php echo get_post_meta( $post->ID, '_meta_link', true ); ?>"
       data-status="<?php echo get_post_meta( $post->ID, '_meta_status', true ); ?>"
       data-size="<?php echo get_post_meta( $post->ID, '_meta_size', true ); ?>"
       data-price="<?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?>,- EUR"

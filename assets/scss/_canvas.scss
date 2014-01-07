@@ -1,3 +1,22 @@
+.ch-tabs {
+  margin-top:2em;
+  background-color: $gray;
+}
+.apartment-chooser{
+  //max-width: 100%;
+  //width: auto\9;
+  //height: auto;
+  //vertical-align: middle;
+  //border: 0;
+  //-ms-interpolation-mode: bicubic;
+  
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  
+  margin: 0 0;
+}
+
 .bau-chooser {
   max-width: 100%;
   width: auto\9;
@@ -29,18 +48,23 @@
 
 
 .tooltip{
+  font-size: 0.875em;
+  line-height: 1.25em;
   margin:8px;
-  padding:14px 20px 0;
+  padding:1em 1em;
   max-width: 320px;
   border:1px solid $magenta;
   background-color:#ffffff;
   position: absolute;
   z-index: 2;
   h3 {
-    margin:0 0;
-    font-size: 2em;
-
+    margin:0 0 0.125em;
+    font-size: 1.25em;
   }
+  p {
+    margin:0;
+  }
+
 }
 
 #pattern {

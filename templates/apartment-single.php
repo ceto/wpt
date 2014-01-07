@@ -8,27 +8,39 @@
 ?> 
 <?php while (have_posts()) : the_post(); ?>
   <section class="chooser">
-    <img src="<?php echo get_template_directory_uri();  ?>/assets/img/overbanner.jpg" alt="Chooser">
+    <img src="<?php echo get_template_directory_uri();  ?>/assets/img/image_map_south.jpg" alt="Chooser">
   </section>
   <article <?php post_class(); ?>>
     <header>
       <h1 class="entry-title">Navigator<small>
         <?php foreach ($obj_terms as $termi) {  ?>
-        <a href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):get_term_link($termi->slug, 'object'); ?>">
-                  <?php echo ($termi->parent!=0)?'Seite '.$termi->name:$termi->name; ?>
+        <a href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):'#'; ?>">
+                  <?php echo ($termi->parent!=0)?$termi->name:$termi->name; ?>
         </a><span class="icon icon-arrow-right"></span>
         <?php } ?>
         <?php the_title(); ?></small></h1>
+        <a class="ch-back btn" href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):'#'; ?>">
+          <span class="icon icon-arrow-left"></span>
+          Back to chooser
+        </a>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
     </div>
     <section class="panel">
       <figure class="entry-plan">
+        
         <?php $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large');  ?>
-        <a class="popup-zoom" href="<?php echo $imgsrc[0]; ?>">
-          <?php the_post_thumbnail('large'); ?>
-        </a>
+          <?php if ($imgsrc[0]!='') : ?>
+            <a class="popup-zoom" href="<?php echo $imgsrc[0]; ?>">
+              <?php the_post_thumbnail('large'); ?>
+            </a>
+          <?php else : ?>
+            <a class="popup-zoom" href="http://placehold.it/600x600&text=Plan">
+              <img src="http://placehold.it/600x600&text=Plan" alt="<?php the_title(); ?>">
+            </a>
+          <?php endif; ?>
+
       </figure>
       <div class="action-block">
         <h2><?php the_title(); ?></h2>
@@ -37,9 +49,16 @@
           <a href="#" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
         </div>
         <figure class="entry-floormap">
+          <?php if (get_post_meta($post->ID, '_meta_floormap', true)!='') : ?>
           <a class="popup-zoom" href="<?php echo get_post_meta($post->ID, '_meta_floormap', true); ?>">
               <img src="<?php echo get_post_meta($post->ID, '_meta_floormap', true); ?>" />
           </a>
+          <?php else : ?>
+            <a class="popup-zoom" href="http://placehold.it/600x300&text=Lage">
+              <img src="http://placehold.it/600x300&text=Lage" alt="<?php the_title(); ?>">
+            </a>
+          <?php endif; ?>
+
         </figure>
       </div>
     </section>
@@ -55,7 +74,9 @@
           <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR</p>
           <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
           <p class="data-item"><span>Lage</span> <?php echo get_post_meta( $post->ID, '_meta_lage', true ); ?></p>
+          <?php if (get_post_meta( $post->ID, '_meta_balkon', true ) ) : ?>          
           <p class="data-item"><span>Balkon</span> <?php echo get_post_meta( $post->ID, '_meta_balkon', true ); ?> m<sup>2</sup></p>
+          <?php endif; ?>
           <?php if (get_post_meta( $post->ID, '_meta_terasse', true ) ) : ?>
           <p class="data-item"><span>Terasse</span> <?php echo get_post_meta( $post->ID, '_meta_terasse', true ); ?> m<sup>2</sup></p>
           <?php endif; ?>          
