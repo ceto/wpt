@@ -33,5 +33,5 @@
         </div>
       </div>
     <?php endif; ?>
-      <p class="signo">Bauparzellen • Doppelhäuser • Wohnungen</p>
+      <p class="signo"><a href="<?php echo get_permalink(10); ?>">Bauparzellen</a> • <a href="<?php echo get_permalink(109); ?>">Doppelhäuser</a> • <a href="#">Wohnungen</a></p></p>
     </section>

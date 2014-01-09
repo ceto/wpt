@@ -287,7 +287,7 @@ function bredraw_canvas() {
       {
         //fill: (menuitem.attr('data-status')==='available')?'#a5da64':(menuitem.attr('data-status')==='sold')?'#c1c1c1':'#9c1a79',
         
-        fill: (menuitem.attr('data-status')==='available')?'#aadf6a':(menuitem.attr('data-status')==='sold')?'transparent':'transparent',
+        fill: (menuitem.attr('data-status')==='available')?'#a5da64':(menuitem.attr('data-status')==='sold')?'transparent':'transparent',
         opacity: 1,
         stroke: 'transparent',
         "stroke-width": 1,
@@ -360,7 +360,8 @@ function bredraw_canvas() {
       function(event){
         items[index].attr(
         {
-          opacity: 0,
+          opacity: 1,
+          fill: '#9c1a79'
         });
         menuitem.toggleClass('active');
       },
@@ -368,6 +369,7 @@ function bredraw_canvas() {
         items[index].attr(
         {
           opacity: 1,
+          fill: '#a5da64'
         });
         menuitem.toggleClass('active');
       }
@@ -377,13 +379,15 @@ function bredraw_canvas() {
       function(){
         items[index].attr(
         {
-          opacity: 0,
+          opacity: 1,
+          fill: '#9c1a79'
         });
       },
       function(){
           items[index].attr(
           {
             opacity: 1,
+            fill: '#a5da64'
           });
       }
     );

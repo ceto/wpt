@@ -328,6 +328,15 @@ body {
   @include breakpoint($s1){
     font-size:1em;
   }
+
+  a{
+    color:white;
+    &:hover, &:focus {
+      color: $magenta;
+      text-decoration: none;
+      text-shadow: 0px 0px 1px $magenta;
+    }
+  }
 }
 
 

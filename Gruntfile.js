@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-         style: 'nested',
+         style: 'compact',
          //noCache: true,
          sourcemap: true
         },
@@ -14,13 +14,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    // autoprefixer: {
-    //   dist: {
-    //     files: {
-    //       'assets/css/main.min.css': 'assets/css/main.min.css'
-    //     }
-    //   }
-    // },
     autoprefixer: {
       dist: {
         options: {
@@ -85,6 +78,7 @@ module.exports = function(grunt) {
           'assets/css/main.min.css',
           'assets/js/scripts.min.js',
           'templates/*.php',
+          '!lib/scripts.php',
           '*.php'
         ]
       }
@@ -103,7 +97,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wp-version');
-  //grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
 

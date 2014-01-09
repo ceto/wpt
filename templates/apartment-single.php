@@ -21,7 +21,7 @@
         <?php the_title(); ?></small></h1>
         <a class="ch-back btn" href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):'#'; ?>">
           <span class="icon icon-arrow-left"></span>
-          Back to chooser
+          Zurück
         </a>
     </header>
     <div class="entry-content">
@@ -30,10 +30,10 @@
     <section class="panel">
       <figure class="entry-plan">
         
-        <?php $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large');  ?>
+        <?php $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'largefree');  ?>
           <?php if ($imgsrc[0]!='') : ?>
             <a class="popup-zoom" href="<?php echo $imgsrc[0]; ?>">
-              <?php the_post_thumbnail('large'); ?>
+              <?php the_post_thumbnail('largefree'); ?>
             </a>
           <?php else : ?>
             <a class="popup-zoom" href="http://placehold.it/600x600&text=Plan">
@@ -45,8 +45,12 @@
       <div class="action-block">
         <h2><?php the_title(); ?></h2>
         <div class="action-buttons">
-          <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download grundris PDF</a>
+          <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download Grundriss PDF</a>
           <a href="#" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
+        </div>
+        <div class="deta">
+          <div class="w"><span>Wnf: </span><?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></div> 
+          <div class="p"><?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR</div>
         </div>
         <figure class="entry-floormap">
           <?php if (get_post_meta($post->ID, '_meta_floormap', true)!='') : ?>
@@ -84,13 +88,13 @@
           <p class="data-item"><span>Garten</span> <?php echo get_post_meta( $post->ID, '_meta_garten', true ); ?> m<sup>2</sup></p>
           <?php endif; ?>
           <?php if (get_post_meta( $post->ID, '_meta_tg', true ) ) : ?>
-            <p class="data-item"><span>TG</span> <?php echo get_post_meta( $post->ID, '_meta_tg', true ); ?> m<sup>2</sup></p>
+            <p class="data-item"><span>TG</span>JA</p>
           <?php endif ?>
           <?php if (get_post_meta( $post->ID, '_meta_ap', true ) ) : ?>
-            <p class="data-item"><span>AP</span> <?php echo get_post_meta( $post->ID, '_meta_ap', true ); ?> m<sup>2</sup></p>
+            <p class="data-item"><span>AP</span>JA</p>
           <?php endif; ?>
           <?php if (get_post_meta( $post->ID, '_meta_keller', true ) ) : ?>
-            <p class="data-item"><span>Keller</span> <?php echo get_post_meta( $post->ID, '_meta_keller', true ); ?> m<sup>2</sup></p>
+            <p class="data-item"><span>Keller</span>JA</p>
           <?php endif; ?>
         </div>
         <div id="tab-lage" class="tab-pane fade ">

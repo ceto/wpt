@@ -1,33 +1,37 @@
 .ch-tabs {
-  margin-top:2em;
   background-color: $gray;
+  display:none;
 }
 .apartment-chooser{
-  //max-width: 100%;
-  //width: auto\9;
-  //height: auto;
-  //vertical-align: middle;
-  //border: 0;
-  //-ms-interpolation-mode: bicubic;
-  
-  background-position: left top;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  
-  margin: 0 0;
-}
-
-.bau-chooser {
   max-width: 100%;
   width: auto\9;
   height: auto;
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
-  //background-color: $gray50;
+  
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  
+  margin: 0 0;
+  margin-top: 2em;
+
+}
+
+.bau-chooser {
+
+  max-width: 100%;
+  width: auto\9;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+
   background: url(../img/masterplan.gif) no-repeat left top transparent;
   background-size: 100% auto;
 }
+
 .bau-data{
   display: none;
 
