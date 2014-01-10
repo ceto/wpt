@@ -397,7 +397,7 @@ body { background: #ebebeb; padding: 1.5em 1.5em; position: relative; }
 .page-template-tmpl-home-php .post .entry-title { margin-top: 0; margin-bottom: 0; }
 
 /***************** Narrow Page *****************/
-.page-template-tmpl-narrow-php .main { max-width: 768px; margin: 0 auto; }
+.page-template-tmpl-narrow-php .main, .page-template-template-contact-php .main { max-width: 768px; margin: 0 auto; }
 
 .sec-cont { *zoom: 1; background-color: #e4e4e4; padding: 1.5em; margin: 1em auto; }
 .sec-cont:before, .sec-cont:after { content: " "; display: table; }
@@ -425,6 +425,28 @@ body { background: #ebebeb; padding: 1.5em 1.5em; position: relative; }
 .single-apartment .apartment .ch-back { float: right; margin-top: 1.25em; }
 .single-apartment .apartment .details { margin-top: 1.5em; }
 
+/***************** Contact Page *****************/
+.page-template-template-contact-php .contact-wrap .entry-title { margin-bottom: 3em; }
+.page-template-template-contact-php .contact-wrap .controlsa { margin: 0.5em auto; width: 29.666em; }
+@media only screen and (max-width: 768px) { .page-template-template-contact-php .contact-wrap .controlsa { width: 25.666em; } }
+@media only screen and (max-width: 480px) { .page-template-template-contact-php .contact-wrap .controlsa { width: auto; } }
+.page-template-template-contact-php .contact-wrap .controlsa label { width: 8em; text-align: right; display: inline-block; margin-right: 0.333em; }
+@media only screen and (max-width: 768px) { .page-template-template-contact-php .contact-wrap .controlsa label { width: 8em; } }
+@media only screen and (max-width: 480px) { .page-template-template-contact-php .contact-wrap .controlsa label { display: block; width: auto; margin-right: 0; text-align: left; } }
+.page-template-template-contact-php .contact-wrap .controlsa input, .page-template-template-contact-php .contact-wrap .controlsa textarea { width: 12em; border: 1px solid #e4e4e4; padding: 0.25em 0.25em; color: gray; }
+@media only screen and (max-width: 768px) { .page-template-template-contact-php .contact-wrap .controlsa input, .page-template-template-contact-php .contact-wrap .controlsa textarea { width: 10em; } }
+@media only screen and (max-width: 480px) { .page-template-template-contact-php .contact-wrap .controlsa input, .page-template-template-contact-php .contact-wrap .controlsa textarea { width: 100%; } }
+.page-template-template-contact-php .contact-wrap .controlsa textarea { width: 21em; }
+@media only screen and (max-width: 768px) { .page-template-template-contact-php .contact-wrap .controlsa textarea { width: 17em; } }
+@media only screen and (max-width: 480px) { .page-template-template-contact-php .contact-wrap .controlsa textarea { width: 100%; } }
+.page-template-template-contact-php .contact-wrap .actions { margin: 0.5em auto; width: 29.666em; text-align: right; }
+@media only screen and (max-width: 768px) { .page-template-template-contact-php .contact-wrap .actions { width: 25.666em; } }
+@media only screen and (max-width: 480px) { .page-template-template-contact-php .contact-wrap .actions { width: auto; } }
+.page-template-template-contact-php .contact-wrap .btn { text-transform: none; font-weight: 400; }
+.page-template-template-contact-php .contact-wrap .submitbtn { border: none; padding: 0.333em 0.75em; }
+.page-template-template-contact-php .contact-wrap .phone { margin-right: 0.25em; margin-top: 0.5em; padding: 0.333em 0.75em 0.333em 0.5em; }
+.page-template-template-contact-php .contact-wrap .oki { text-align: left; margin-top: 0.5em; }
+
 .apartment .panel { *zoom: 1; background: #e4e4e4; padding: 1.5em; position: relative; }
 .apartment .panel:before, .apartment .panel:after { content: " "; display: table; }
 .apartment .panel:after { clear: both; }
@@ -433,18 +455,21 @@ body { background: #ebebeb; padding: 1.5em 1.5em; position: relative; }
 .apartment .entry-plan:after { content: "\e605"; font-family: 'wpt'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; /* Better Font Rendering =========== */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: absolute; right: 0; bottom: 0; display: block; background-color: rgba(128, 128, 128, 0.8); color: #ffffff; width: 50px; height: 50px; font-size: 25px; line-height: 50px; text-align: center; }
 .apartment .entry-plan:hover:after { background-color: rgba(158, 20, 122, 0.8); }
 .apartment .entry-plan img { width: 100%; }
+.apartment .entry-plan img:hover { cursor: -moz-zoom-in; cursor: -webkit-zoom-in; cursor: zoom-in; }
 .apartment .action-block { width: 38%; float: left; padding-left: 1.5em; }
 @media only screen and (max-width: 768px) { .apartment .action-block { width: auto; float: none; padding-left: 0; } }
-.apartment .action-block h2 { margin: 0 0 2em; }
+.apartment .action-block h2 { margin: 0 0 0.5em; font-size: 2em; }
 @media only screen and (max-width: 768px) { .apartment .action-block h2 { margin: 1em 0; } }
-.apartment .action-block .entry-floormap { text-align: center; position: absolute; width: 38%; padding-left: 2.5em; bottom: 1.5em; right: 1.5em; }
-@media only screen and (max-width: 768px) { .apartment .action-block .entry-floormap { position: static; padding-left: 0; width: auto; } }
-.apartment .action-block .deta { font-size: 2em; line-height: 0.875em; color: #9e147a; font-weight: 700; margin-top: 2em; margin-bottom: 55%; }
+.apartment .action-block .deta { font-size: 2em; line-height: 0.875em; color: #9e147a; font-weight: 700; margin-top: 1em; margin-bottom: 1em; }
 @media only screen and (max-width: 768px) { .apartment .action-block .deta { margin-top: 1em; margin-bottom: 1em; } }
 .apartment .action-block .deta .w { font-size: 0.75em; }
 .apartment .action-block .deta .w span { font-size: 0.5em; }
-.apartment .action-block .action-buttons { margin-bottom: 2em; margin-right: -1.5em; }
-.apartment .action-block .btn { display: block; margin-bottom: 0.25em; }
+.apartment .action-block .entry-floormap { text-align: center; margin-bottom: 8em; }
+@media only screen and (max-width: 768px) { .apartment .action-block .entry-floormap { margin-bottom: 3em; } }
+.apartment .action-block .entry-floormap img:hover { cursor: -moz-zoom-in; cursor: -webkit-zoom-in; cursor: zoom-in; }
+.apartment .action-block .action-buttons { position: absolute; bottom: 1.5em; right: 0; width: 38.5666%; padding-left: 1.5em; }
+@media only screen and (max-width: 768px) { .apartment .action-block .action-buttons { position: static; margin-bottom: 2em; margin-right: -1.5em; padding-left: 0; width: auto; } }
+.apartment .action-block .btn { display: block; margin-top: 0.25em; }
 .apartment .details .tab-content > .tab-pane.data-list { padding: 0; }
 .apartment .details .data-item { padding: 1em; margin: 0; width: 33.333333%; float: left; font-size: 1.25em; }
 .apartment .details .data-item:nth-child(3n+1) { clear: left; }
@@ -453,6 +478,7 @@ body { background: #ebebeb; padding: 1.5em 1.5em; position: relative; }
   .apartment .details .data-item:nth-child(2n+1) { clear: left; }
   .apartment .details .data-item:nth-child(3n+1) { clear: none; } }
 @media only screen and (max-width: 480px) { .apartment .details .data-item { width: auto; float: none; } }
+.apartment .details .disclaimer { margin-top: 0.5em; font-style: italic; }
 
 .gallery { *zoom: 1; margin: -0.25em -0.25em 0.75em; }
 .gallery:before, .gallery:after { content: " "; display: table; }
@@ -577,8 +603,10 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .bau-data { display: none; }
 
-.white-popup { position: relative; background: #ffffff; padding: 14px 20px; width: auto; max-width: 320px; margin: 20px auto; }
+.white-popup { position: relative; background: #ffffff; padding: 14px 20px 14px; width: auto; max-width: 320px; margin: 20px auto; }
 .white-popup h3 { margin: 0 0; font-size: 2em; }
+.white-popup p { margin-bottom: 0; }
+.white-popup .btn { display: block; margin-top: 0.5em; }
 
 .tooltip { font-size: 0.875em; line-height: 1.25em; margin: 8px; padding: 1em 1em; max-width: 320px; border: 1px solid #9e147a; background-color: #ffffff; position: absolute; z-index: 2; }
 .tooltip h3 { margin: 0 0 0.125em; font-size: 1.25em; }

@@ -230,7 +230,7 @@
 
 }
 /***************** Narrow Page *****************/
-.page-template-tmpl-narrow-php {
+.page-template-tmpl-narrow-php, .page-template-template-contact-php  {
   .main {
     //padding:0;
     max-width: $s2;
@@ -335,7 +335,102 @@
       margin-top:1.5em;
     }
   }
-  
-
 }
 
+
+/***************** Contact Page *****************/
+
+.page-template-template-contact-php {
+
+  .contact-wrap {
+
+  
+  
+  .entry-title {
+    margin-bottom: 3em;
+  }
+
+  .controlsa {
+    margin:0.5em auto;
+    width:29.666em;
+    @include breakpoint($s2) {
+      width:25.666em;
+    }
+    @include breakpoint($s1) {
+      width:auto;
+    } 
+    label {
+      width: 8em;
+      text-align: right;
+      display: inline-block;
+      margin-right: 0.333em;
+      @include breakpoint($s2) {
+        width: 8em;
+      }
+
+      @include breakpoint($s1) {
+        display:block;
+        width: auto;
+        margin-right:0;
+        text-align:left;
+      }
+
+    }
+    input,textarea {
+      width:12em;
+      border: 1px solid $gray75;
+      padding:0.25em 0.25em;
+      color: $gray125;
+      @include breakpoint($s2) {
+        width:10em;
+      }
+
+      @include breakpoint($s1) {
+        width:100%;
+      }
+    }
+    textarea {
+      width:21em;
+      @include breakpoint($s2) {
+        width:17em;
+      
+      }
+
+      @include breakpoint($s1) {
+        width:100%;
+      }
+    }
+  }
+  .actions {
+    margin:0.5em auto;
+    width:29.666em; 
+    text-align: right;
+    @include breakpoint($s2) {
+      width:25.666em; 
+    }
+
+    @include breakpoint($s1) {
+      width:auto;
+    } 
+  }
+  .btn {
+    text-transform: none;
+    font-weight: 400;
+  }
+  .submitbtn {
+    border:none;
+    padding: 0.333em 0.75em;
+  }
+
+  .phone {
+    margin-right: 0.25em;
+    margin-top: 0.5em;
+    padding: 0.333em 0.75em 0.333em 0.5em;
+  }
+  .oki {
+    text-align: left;
+    margin-top: 0.5em;
+  }
+
+  }
+}

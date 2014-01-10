@@ -39,7 +39,7 @@
 .white-popup {
   position: relative;
   background: #ffffff;
-  padding: 14px 20px;
+  padding: 14px 20px 14px;
   width: auto;
   max-width: 320px;
   margin: 20px auto;
@@ -47,6 +47,13 @@
     margin:0 0;
     font-size: 2em;
 
+  }
+  p {
+    margin-bottom:0;
+  }
+  .btn {
+    display: block;
+    margin-top: 0.5em;
   }
 }
 

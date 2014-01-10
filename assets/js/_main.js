@@ -186,7 +186,7 @@ function aredraw_canvas() {
             '</h3>'+
             '<p>'+
             '<span class="size">Wohnfläche: '+menuitem.attr('data-wnf')+' m<sup>2</sup></span><br/>'+
-            '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+            '<span class="price">Preis: '+menuitem.attr('data-price')+'</span>'+
             '</p>'+
             '</div>').appendTo('body');
       var tooltipX = event.pageX - 8;
@@ -312,7 +312,8 @@ function bredraw_canvas() {
                 '<h3>'+menuitem.attr('data-name')+'</h3>'+
                 '<p>'+
                 '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
-                '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+                '<span class="price">Kaufpreis: '+menuitem.attr('data-price')+'</span>'+
+                '<a href="?page_id=487&ap_id='+menuitem.attr('data-name')+'" class="btn"><span class="icon-envelope"></span>Anfrage</a>'+
                 '</p>'+
                 '</div>'
             
@@ -340,7 +341,7 @@ function bredraw_canvas() {
               '<h3>'+menuitem.attr('data-name')+'</h3>'+
               '<p>'+
               '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
-              '<span class="price">Prize: '+menuitem.attr('data-price')+'</span>'+
+              '<span class="price">Kaufpreis: '+menuitem.attr('data-price')+'</span>'+
               '</p>'+
               '</div>').appendTo('body');
         var tooltipX = event.pageX - 8;

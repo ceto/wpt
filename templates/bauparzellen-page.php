@@ -22,6 +22,7 @@
       data-size="<?php echo get_post_meta( $post->ID, '_meta_size', true ); ?>"
       data-price="<?php echo number_format($nupri, 0, ',', ' '); ?>,- EUR"
       data-name="<?php the_title(); ?>"
+      data-permalink="<?php the_permalink(); ?>"
     >
     <a href="<?php the_permalink(); ?>">
       <?php the_title(); ?>

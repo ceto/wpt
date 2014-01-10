@@ -44,10 +44,6 @@
       </figure>
       <div class="action-block">
         <h2><?php the_title(); ?></h2>
-        <div class="action-buttons">
-          <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download Grundriss PDF</a>
-          <a href="#" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
-        </div>
         <div class="deta">
           <div class="w"><span>Wnf: </span><?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></div> 
           <div class="p"><?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR</div>
@@ -62,8 +58,11 @@
               <img src="http://placehold.it/600x300&text=Lage" alt="<?php the_title(); ?>">
             </a>
           <?php endif; ?>
-
         </figure>
+          <div class="action-buttons">
+            <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download Grundriss PDF</a>
+            <a href="<?php echo get_permalink(487); ?>?ap_id=<?php echo urlencode(get_the_title()); ?>" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
+          </div>
       </div>
     </section>
 
@@ -75,7 +74,7 @@
       <div class="tab-content">
         <div id="tab-facts" class="tab-pane fade active in data-list">
           <p class="data-item"><span>Wohnfläche</span> <?php echo get_post_meta( $post->ID, '_meta_wnf', true ); ?> m<sup>2</sup></p>
-          <p class="price data-item"><span>Eigennutzer Kaufpreis</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR</p>
+          <p class="price data-item"><span>Kaufpreis (exkl. Nebenkosten*)</span> <?php echo number_format(get_post_meta( $post->ID, '_meta_price', true ), 0, ',', ' '); ?> EUR</p>
           <p class="data-item"><span>Beziehbar</span> <?php echo get_post_meta( $post->ID, '_meta_status', true ); ?></p>
           <p class="data-item"><span>Lage</span> <?php echo get_post_meta( $post->ID, '_meta_lage', true ); ?></p>
           <?php if (get_post_meta( $post->ID, '_meta_balkon', true ) ) : ?>          
@@ -87,19 +86,16 @@
           <?php if (get_post_meta( $post->ID, '_meta_garten', true ) ) : ?>
           <p class="data-item"><span>Garten</span> <?php echo get_post_meta( $post->ID, '_meta_garten', true ); ?> m<sup>2</sup></p>
           <?php endif; ?>
-          <?php if (get_post_meta( $post->ID, '_meta_tg', true ) ) : ?>
-            <p class="data-item"><span>TG</span>JA</p>
-          <?php endif ?>
-          <?php if (get_post_meta( $post->ID, '_meta_ap', true ) ) : ?>
-            <p class="data-item"><span>AP</span>JA</p>
-          <?php endif; ?>
-          <?php if (get_post_meta( $post->ID, '_meta_keller', true ) ) : ?>
-            <p class="data-item"><span>Keller</span>JA</p>
-          <?php endif; ?>
+          <p class="data-item"><span>Tiefgarage</span><?php echo get_post_meta( $post->ID, '_meta_tg', true )?get_post_meta( $post->ID, '_meta_tg', true ).' m<sup>2</sup>':'NEIN'; ?></p>
+          <p class="data-item"><span>Abstellplatz</span><?php echo get_post_meta( $post->ID, '_meta_ap', true )?get_post_meta( $post->ID, '_meta_ap', true ).' m<sup>2</sup>':'NEIN'; ?></p>
+          <p class="data-item"><span>Keller</span><?php echo get_post_meta( $post->ID, '_meta_keller', true )?get_post_meta( $post->ID, '_meta_keller', true ).' m<sup>2</sup>':'NEIN'; ?></p>
         </div>
         <div id="tab-lage" class="tab-pane fade ">
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
         </div>
+      </div>
+      <div class="disclaimer">
+        *Grunderwerbssteuer 3,5%, Vertragserrichtung und –abwicklung 1,8%, Eintragungsgebühr Grundbuch 1,1%, HWB: 27-28kWh/m<sup>2</sup>a
       </div>
     </section>  
     <footer>
