@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'fa7d52d770296a5aec98cc67d1f4eb3c');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '5da8ae49fbe39cfe7313eb4ec92d4df2');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -28,7 +28,8 @@ function roots_scripts() {
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.0.min.js', false, null, false);
   wp_register_script('raphaeljs', get_template_directory_uri() . '/assets/js/vendor/raphael-2.1.2.min.js', false, null, true);
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '61c74469528925316ee6c9c508e9d20c', true);
+  wp_register_script('gmapjs', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', false, null, false);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '5a9da8a013011baa559f26de32152e0f', true);
   
 
   wp_enqueue_script('modernizr');
@@ -36,6 +37,10 @@ function roots_scripts() {
 
   if ( (is_page_template('tmpl-bauparzellen.php')) || is_tax('object') || is_page_template('taxomonmy-object.php') ) {
     wp_enqueue_script('raphaeljs');
+  }
+
+  if ( (is_singular('apartment')) ) {
+    wp_enqueue_script('gmapjs');
   }
 
   wp_enqueue_script('roots_scripts');

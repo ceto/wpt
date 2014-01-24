@@ -22,14 +22,14 @@
     <?php else : ?>
       <div class="ferde-row">
         <div class="left">
-          <p class="title">Aktuelles</p>
-          <p class="desc">&nbsp;</p>
-          <a href="<?php echo get_permalink(16);  ?>" class="btn"><span>NÄHERE INFOS HIER</span></a>
+          <p class="title">Kommen Sie vorbei!</p>
+          <p class="desc">24. - 26. Jänner</p>
+          <a href="<?php echo get_permalink(601);  ?>" class="btn"><span>Zur Messe Tulln</span></a>
         </div>
         <div class="center"></div>
         <div class="right">
-          <span class="icon-tram"></span> 18 min, nach Wien<br />
-          <span class="icon-tree"></span> 2 min. ins grün
+          <span class="icon-tram"></span> 18 min. nach Wien<br />
+          <span class="icon-tree"></span> 2 min. ins grüne
         </div>
       </div>
     <?php endif; ?>

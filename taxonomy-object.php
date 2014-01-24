@@ -24,13 +24,13 @@ Template Name: Apartment Chooser Start Template
   <div class="page-header">
     <?php the_content(); ?>
     <h1>Wohnungen Navigator
-      <small>
+      <!-- small>
       <?php if ($parent_term->term_id!=0) : ?>
         <?php echo $parent_term->name; ?>
         <span class="icon icon-arrow-right"></span>
       <?php endif; ?>
       <?php echo roots_title(); ?>
-      </small>
+      </small -->
     </h1>
   </div>
   <?php 

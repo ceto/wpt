@@ -10,5 +10,6 @@
   </header>
   <div class="entry-summary">
     <?php the_excerpt(); ?>
+    <a href="<?php the_permalink(); ?>" class="read-more">Mehr</a>
   </div>
 </article>

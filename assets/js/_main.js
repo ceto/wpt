@@ -75,6 +75,9 @@ jQuery(document).ready(function($) {
     showMenu();
   });
 
+  // Target your .container, .wrapper, .post, etc.
+  $(".main").fitVids();
+
 
   $('.gallery').magnificPopup({
     delegate: 'a',
@@ -148,7 +151,7 @@ function aredraw_canvas() {
             
     items[index].node.id = 'e'+menuitem.attr('id');
 
-    text=menuitem.attr('data-name')+"\nWnf: "+menuitem.attr('data-wnf')+"m2,\nPrize: "+menuitem.attr('data-price');
+    text=menuitem.attr('data-name')+"\nWnf: "+menuitem.attr('data-wnf')+"m2,\nPreis: "+menuitem.attr('data-price');
     
     items[index].attr(
       {
@@ -273,7 +276,7 @@ function bredraw_canvas() {
     items[index].node.id = 'e'+menuitem.attr('id');
 
     if ( menuitem.attr('data-status')==='available' ) {
-      text='Nr.: '+menuitem.attr('data-name')+"\nGröße: "+menuitem.attr('data-size')+"m2,\nPrize: "+menuitem.attr('data-price');
+      text='Nr.: '+menuitem.attr('data-name')+" \nGröße: "+menuitem.attr('data-size')+"m2, \nPreis: "+menuitem.attr('data-price');
     } else {
       if ( menuitem.attr('data-status')==='sold' ) {
         text="Verkauft";
@@ -306,20 +309,44 @@ function bredraw_canvas() {
       items[index].click(function () {
       
         if ( menuitem.attr('data-status')==='available' ) {
-          $.magnificPopup.open({
-            items: {
-              src: '<div class="white-popup">'+
-                '<h3>'+menuitem.attr('data-name')+'</h3>'+
-                '<p>'+
-                '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
-                '<span class="price">Kaufpreis: '+menuitem.attr('data-price')+'</span>'+
-                '<a href="?page_id=487&ap_id='+menuitem.attr('data-name')+'" class="btn"><span class="icon-envelope"></span>Anfrage</a>'+
-                '</p>'+
-                '</div>'
+          // $.magnificPopup.open({
+          //   items: {
+          //     src: '<div class="white-popup">'+
+          //       '<h3>'+menuitem.attr('data-name')+'</h3>'+
+          //       '<p>'+
+          //       '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
+          //       '<span class="price">Kaufpreis: '+menuitem.attr('data-price')+'</span>'+
+          //       '<a href="?page_id=487&ap_id='+menuitem.attr('data-name')+'" class="btn"><span class="icon-envelope"></span>Anfrage</a>'+
+          //       '</p>'+
+          //       '</div>'
             
-            },
-            type: 'inline'
-          }, 0);
+          //   },
+          //   type: 'inline'
+          // }, 0);
+
+            
+            $('#message_betreff').val('Nr.: '+menuitem.attr('data-name')+" \nGröße: "+menuitem.attr('data-size')+"m2, \nPreis: "+menuitem.attr('data-price'));
+            $('#infopan').replaceWith('<div id="infopan"><h3>'+menuitem.attr('data-name')+'</h3><p>Größe: '+menuitem.attr('data-size')+"m2,<br>Preis: "+menuitem.attr('data-price')+'</p></div>');
+
+            $.magnificPopup.open({
+              items:{
+                type: 'inline',
+                preloader: false,
+                focus: '#message_name',
+                src:'#respond',
+                callbacks: {
+                  beforeOpen: function() {
+                    if($(window).width() < 700) {
+                      this.st.focus = false;
+                    } else {
+                      this.st.focus = '#message_name';
+                    }
+                  }
+                }
+              }
+            },0);
+
+
         } else {
           window.location=(menuitem.attr('data-link'));
         }
@@ -409,6 +436,35 @@ $(document).ready(function() {
   }
 
 
+});
+
+$(document).ready(function(){
+  // Target your .container, .wrapper, .post, etc.
+  $(".wp-video-shortcode").fitVids();
+});
+
+
+$(document).ready(function() {
+  $('[data-subject]').click(function(){
+    $('#message_betreff').val( $('[data-subject]').attr('data-subject') );
+  });
+  $('.popup-with-form').magnificPopup({
+    type: 'inline',
+    preloader: false,
+    focus: '#message_name',
+
+    // When elemened is focused, some mobile browsers in some cases zoom in
+    // It looks not nice, so we disable it:
+    callbacks: {
+      beforeOpen: function() {
+        if($(window).width() < 700) {
+          this.st.focus = false;
+        } else {
+          this.st.focus = '#message_name';
+        }
+      }
+    }
+  });
 });
 
 $(document).ready(function(){

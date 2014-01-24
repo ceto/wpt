@@ -1,24 +1,58 @@
+<script>
+  var placem = new google.maps.LatLng(48.288527, 15.983659);
+  var map;
+  function gmap_initialize() {
+    var mapOptions = {
+      zoom: 12,
+      center: placem
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+  }
+
+  var marker = new google.maps.Marker({
+    position: placem, 
+    map: map, 
+    title:"Wohnpark Tullnerfeld",
+  });
+
+  google.maps.event.addDomListener(window, 'load', gmap_initialize);
+
+
+  $(document).ready(function(){ 
+    $('.nav-tabs li').click(function(e){ 
+      setTimeout( function(){
+        google.maps.event.trigger(map, 'resize');
+        map.setZoom( map.getZoom() );
+      }, 200);
+    });
+  });
+
+
+</script>
 <?php $obj_terms = wp_get_object_terms($post->ID, 'object', array (
    'orderby' => 'date',
    'order' => 'ASC',
    'fields' => 'all' 
   )
 );
-//$termi=$obj_terms[0]; 
+  $term_id=$obj_terms[1]->term_id;
+  $ima = get_tax_meta( $term_id ,'_meta_image');
+  $imci = wp_get_attachment_image_src( $ima[id], 'banner169'); 
 ?> 
 <?php while (have_posts()) : the_post(); ?>
   <section class="chooser">
-    <img src="<?php echo get_template_directory_uri();  ?>/assets/img/image_map_south.jpg" alt="Chooser">
+    <img src="<?php echo $imci[0]; ?>" alt="Chooser">
   </section>
   <article <?php post_class(); ?>>
     <header>
-      <h1 class="entry-title">Navigator<small>
+      <h1 class="entry-title">Navigator<!-- small>
         <?php foreach ($obj_terms as $termi) {  ?>
         <a href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):'#'; ?>">
                   <?php echo ($termi->parent!=0)?$termi->name:$termi->name; ?>
         </a><span class="icon icon-arrow-right"></span>
         <?php } ?>
-        <?php the_title(); ?></small></h1>
+        <?php the_title(); ?></small --></h1>
         <a class="ch-back btn" href="<?php echo ($termi->parent!=0)?get_term_link($termi->slug, 'object'):'#'; ?>">
           <span class="icon icon-arrow-left"></span>
           Zurück
@@ -61,7 +95,7 @@
         </figure>
           <div class="action-buttons">
             <a href="<?php echo get_post_meta($post->ID, '_meta_pdf', true); ?>" class="btn download"><span class="icon-download"></span>Download Grundriss PDF</a>
-            <a href="<?php echo get_permalink(487); ?>?ap_id=<?php echo urlencode(get_the_title()); ?>" class="btn buy"><span class="icon-envelope"></span>Anfrage</a>
+            <a href="#respond" data-subject="<?php echo get_the_title(); ?>" class="btn buy popup-with-form"><span class="icon-envelope"></span>Anfrage</a>
           </div>
       </div>
     </section>
@@ -91,7 +125,7 @@
           <p class="data-item"><span>Keller</span><?php echo get_post_meta( $post->ID, '_meta_keller', true )?get_post_meta( $post->ID, '_meta_keller', true ).' m<sup>2</sup>':'NEIN'; ?></p>
         </div>
         <div id="tab-lage" class="tab-pane fade ">
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+          <div id="map-canvas"></div>
         </div>
       </div>
       <div class="disclaimer">

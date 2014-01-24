@@ -69,6 +69,12 @@
         text-decoration: none;
       }
     }
+    a {
+      display: none;
+    }
+    .read-more{
+      display:block;
+    }
   }
 
 }
@@ -285,21 +291,17 @@
 /***************** Bauparzellen Page *****************/
 .page-template-tmpl-bauparzellen-php {
   .page-header {
-    margin-left: 260px;
-    margin-top: 4.5em;
-    margin-right:4em;
+    max-width: $s2;
+    margin:0 auto;
     @include breakpoint($s2) {
-      margin-left: 0;
-      margin-top:4em;
-      margin-right:0;
+      //padding:1.5em;
     }
   }
   .pri-cont {
-    margin-left: 260px;
-    margin-right: 4em;
+    max-width: $s2;
+    margin:0 auto;
     @include breakpoint($s2) {
-      margin-left: 0;
-      margin-right:0;
+      //padding:1.5em;
     }
   }
 }

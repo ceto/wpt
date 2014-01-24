@@ -17,10 +17,10 @@
     <a href="#" class="menu-toggle"><span class="icon-menu"></span></a>
     <section class="btns">
       <a href="tel:0800221101" class="phone"><span class="icon-phone"></span>0800 / 22 11 01</a>
-      <a href="<?php echo get_permalink(481); ?>" class="mail"><span class="icon-mail"></span>JETZT ANFRAGEN</a>
+      <a href="#respond" class="mail popup-with-form"><span class="icon-mail"></span>JETZT ANFRAGEN</a>
     </section>
 
-    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment')) && (!is_page_template('tmpl-bauparzellen.php')) && (!is_page_template('taxonomy-object.php'))  ) : ?>
+    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment')) && (!is_page_template('taxonomy-object.php'))  ) : ?>
     <?php get_template_part('templates/advert'); ?>
     <?php endif; ?>
 
