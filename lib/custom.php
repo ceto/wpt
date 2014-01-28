@@ -566,6 +566,190 @@ function bs_tab( $atts, $content = null ) {
 }
 
 
+
+
+
+
+/******* WP OPtions ******/
+class MySettingsPage
+{
+    /**
+     * Holds the values to be used in the fields callbacks
+     */
+    private $options;
+
+    /**
+     * Start up
+     */
+    public function __construct()
+    {
+        add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
+        add_action( 'admin_init', array( $this, 'page_init' ) );
+    }
+
+    /**
+     * Add options page
+     */
+    public function add_plugin_page()
+    {
+        // This page will be under "Settings"
+        add_options_page(
+            'Settings Admin', 
+            'WPT Settings', 
+            'manage_options', 
+            'my-setting-admin', 
+            array( $this, 'create_admin_page' )
+        );
+    }
+
+    /**
+     * Options page callback
+     */
+    public function create_admin_page()
+    {
+        // Set class property
+        $this->options = get_option( 'my_option_name' );
+        ?>
+        <div class="wrap">
+            <?php screen_icon(); ?>
+            <h2>WPT Settings</h2>           
+            <form method="post" action="options.php">
+            <?php
+                // This prints out all hidden setting fields
+                settings_fields( 'my_option_group' );   
+                do_settings_sections( 'my-setting-admin' );
+                submit_button(); 
+            ?>
+            </form>
+        </div>
+        <?php
+    }
+
+    /**
+     * Register and add settings
+     */
+    public function page_init()
+    {        
+        register_setting(
+            'my_option_group', // Option group
+            'my_option_name', // Option name
+            array( $this, 'sanitize' ) // Sanitize
+        );
+
+        add_settings_section(
+            'setting_section_id', // ID
+            'WPT Custom Settings', // Title
+            array( $this, 'print_section_info' ), // Callback
+            'my-setting-admin' // Page
+        );  
+
+        add_settings_field(
+            'title', 
+            'Advert Title', 
+            array( $this, 'title_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        );
+        add_settings_field(
+            'subtitle', 
+            'Advert Sub Title', 
+            array( $this, 'subtitle_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        );    
+
+        add_settings_field(
+            'button_text', // ID
+            'Advert button text', // Title 
+            array( $this, 'button_text_callback' ), // Callback
+            'my-setting-admin', // Page
+            'setting_section_id' // Section           
+        );
+
+        add_settings_field(
+            'button_url', // ID
+            'Button url', // Title 
+            array( $this, 'button_url_callback' ), // Callback
+            'my-setting-admin', // Page
+            'setting_section_id' // Section           
+        );       
+
+   
+    }
+
+    /**
+     * Sanitize each setting field as needed
+     *
+     * @param array $input Contains all settings fields as array keys
+     */
+    public function sanitize( $input )
+    {
+        $new_input = array();
+        
+        if( isset( $input['title'] ) )
+            $new_input['title'] = sanitize_text_field( $input['title'] );
+
+        if( isset( $input['subtitle'] ) )
+            $new_input['subtitle'] = sanitize_text_field( $input['subtitle'] );
+
+        if( isset( $input['button_text'] ) )
+            $new_input['button_text'] = sanitize_text_field( $input['button_text'] );
+
+        if( isset( $input['button_url'] ) )
+            $new_input['button_url'] = sanitize_text_field( $input['button_url'] );
+
+        return $new_input;
+    }
+
+    /** 
+     * Print the Section text
+     */
+    public function print_section_info()
+    {
+        print "Don't use long sentences below!";
+    }
+
+    /** 
+     * Get the settings option array and print one of its values
+     */
+    public function title_callback()
+    {
+        printf(
+            '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
+            isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
+        );
+    }
+
+    public function subtitle_callback()
+    {
+        printf(
+            '<input type="text" id="subtitle" name="my_option_name[subtitle]" value="%s" />',
+            isset( $this->options['subtitle'] ) ? esc_attr( $this->options['subtitle']) : ''
+        );
+    }
+
+    public function button_text_callback()
+    {
+        printf(
+            '<input type="text" id="button_text" name="my_option_name[button_text]" value="%s" />',
+            isset( $this->options['button_text'] ) ? esc_attr( $this->options['button_text']) : ''
+        );
+    }
+
+    public function button_url_callback()
+    {
+        printf(
+            '<input type="text" id="button_url" name="my_option_name[button_url]" value="%s" />',
+            isset( $this->options['button_url'] ) ? esc_attr( $this->options['button_url']) : ''
+        );
+    }
+}
+
+if( is_admin() )
+    $my_settings_page = new MySettingsPage();
+
+
+
 // add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 // add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 

@@ -45,6 +45,7 @@ body {
     color:#ffffff;
     background: rgba($magenta,0.8);
     text-decoration: none;
+    outline:0;
   }
 
   @include breakpoint($s2) {
@@ -190,7 +191,10 @@ body {
   border-collapse: collapse;
   width:100%;
   @include breakpoint($s2){
-    margin-top:280px
+    margin-top:136px
+  }
+  @include breakpoint($s1){
+    margin-top:72px;
   }
   
   .left {
@@ -198,7 +202,7 @@ body {
     display: table-cell;
     
     color:$magenta;
-    width:50%;
+    width:54%;
     padding:2em 0 0 1em ;
     vertical-align: middle;
 
@@ -210,7 +214,7 @@ body {
     @include breakpoint($s1){
       width:auto;
       display: block;
-      margin-right:33%;
+      margin-right:56px;
       padding:1em 1em 1em;
     }
     .desc {
@@ -235,7 +239,7 @@ body {
     color:#ffffff;
     //width:33%;
     padding:1em;
-    padding-left:7em;
+    padding-left:5em;
     vertical-align: middle;
     @include breakpoint($s2){
       background-color: rgba($magenta,0.7);
@@ -244,7 +248,7 @@ body {
     @include breakpoint($s1){
       display: block;
       width:auto;
-      margin-right:33%;
+      margin-right:56px;
       padding:1em 1em;
     }
     
@@ -264,11 +268,16 @@ body {
   }
   .title {
     font-size:3em;
-    line-height:1em;
+    line-height:48px;
     //font-family: $sans-serif;
+    //word-break: keep-all;
     font-weight: 700;
+    min-height: 48px;
+    vertical-align: bottom;
     @include breakpoint($s2){
       font-size:2em;
+      line-height: 1em;
+      min-height: 0;
     }
   }
   .btn {
@@ -277,7 +286,7 @@ body {
     color:#ffffff;
     text-decoration: none;
     padding:0.666666em 0.5em;
-    transform: rotate(-2deg) translateY(-0.55em);
+    transform: rotate(-2deg) translateY(-0.7em);
 
     @include breakpoint($s2){
       -webkit-transform:none; 
@@ -370,7 +379,8 @@ body {
   background:$magenta;
   color:#ffffff;
   margin:1.5em auto 0 auto;
-  padding:1.5em;
+  padding-top:1em;
+  padding-bottom:1em;
   max-width: $maximum;
   @include breakpoint($s3) {
     margin-top:0;

@@ -76,6 +76,15 @@
       text-transform: none !important;
 
     }
+    
+    @include breakpoint($s2) {
+      a {
+        padding-left: 2em;
+        &:before {
+          content: "- ";
+          }
+      }
+    }
 
   }
 }
@@ -251,7 +260,7 @@
 
 /********* Off Canvas Navigation *******/
 @include breakpoint ($s2) {
-  body {
+  body,html {
     overflow-x:hidden;
   }
   
@@ -259,7 +268,7 @@
     //box-shadow: 0px -5px 5px $gray125;
   }
   .banner {
-    z-index:-1;
+    //z-index:-1;
   }
 
   .banner, .minden{

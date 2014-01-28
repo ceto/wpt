@@ -36,7 +36,7 @@
   display: none;
 
 }
-.white-popup {
+.white-popup, .white-popup-block {
   position: relative;
   background: #ffffff;
   padding: 14px 20px 14px;
@@ -46,17 +46,23 @@
   h3 {
     margin:0 0;
     font-size: 2em;
-
   }
   p {
-    margin-bottom:0;
+    margin:0;
+  }
+  .block-title {
+    @include breakpoint($s1){
+      font-size: 1.25em;
+    }
   }
   .btn {
     display: block;
     margin-top: 0.5em;
   }
 }
-
+.white-popup-block {
+  max-width: 640px;
+}
 
 .tooltip{
   font-size: 0.875em;

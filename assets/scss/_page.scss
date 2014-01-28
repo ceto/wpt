@@ -145,13 +145,13 @@
     }
 
     .entry-content, .entry-add {
-
-      margin-top:1em;
       margin-left:0;
       @include breakpoint($s2) {
         margin-top:0;
       }
-    
+      .entry-title{
+        margin:0 0 0.5em; 
+      }   
       p {
         margin-top:0;
         @include breakpoint($s2) {
@@ -342,15 +342,13 @@
 
 /***************** Contact Page *****************/
 
-.page-template-template-contact-php {
+.contact-wrap {
 
-  .contact-wrap {
 
-  
-  
-  .entry-title {
-    margin-bottom: 3em;
-  }
+
+.entry-title {
+  margin-bottom: 3em;
+}
 
   .controlsa {
     margin:0.5em auto;
@@ -418,6 +416,7 @@
   .btn {
     text-transform: none;
     font-weight: 400;
+    display: inline-block !important;
   }
   .submitbtn {
     border:none;
@@ -434,5 +433,5 @@
     margin-top: 0.5em;
   }
 
-  }
 }
+

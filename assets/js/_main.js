@@ -441,6 +441,7 @@ $(document).ready(function() {
 $(document).ready(function(){
   // Target your .container, .wrapper, .post, etc.
   $(".wp-video-shortcode").fitVids();
+  $(".ferde-row .title").fitText(1.4, { minFontSize: '20px'});
 });
 
 
