@@ -357,6 +357,15 @@ function cmb_page_metaboxes( array $meta_boxes ) {
     //'cmb_styles' => true, // Enqueue the CMB stylesheet on the frontend
     'fields'     => array(
       array(
+        'name' => __('Featured Image'),
+        'id'   => $prefix . 'fimg',
+        'type' => 'multicheck',
+        'options' => array(
+          'check1' => __( 'Show header image at the top banner', 'root' ),
+          'check2' => __( 'Show thumbnail in blog view', 'root' ),
+        )
+      ),
+      array(
         'name' => __( 'Main Subtitle', 'root' ),
         'desc' => __( 'Add your own subtitle (optional)', 'root' ),
         'id'   => $prefix . 'subtitle',

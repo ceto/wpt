@@ -3,6 +3,7 @@
   <article <?php post_class($classmod); ?>>
     <!-- header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
+
       <?php get_template_part('templates/entry-meta'); ?>
     </header -->
     <div class="entry-add">
@@ -18,7 +19,7 @@
 
     <div class="entry-content">
       <h1 class="entry-title"><?php the_title() ?></h1>
-      <?php the_content(); ?>
+       <?php the_content(); ?>
       <a class="backtotheblog" href="<?php echo get_permalink(16); ?>">Zur Übersicht</a>
     </div>
     <footer>

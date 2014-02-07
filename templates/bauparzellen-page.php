@@ -1,6 +1,9 @@
 <?php while (have_posts()) : the_post(); ?>
-  <div class="pri-cont">
-    <?php the_content(); ?>
+  <div class="head-lead">
+    <?php get_template_part('templates/page', 'header'); ?>
+    <div class="pri-cont">
+      <?php the_content(); ?>
+    </div>
   </div>
 <?php endwhile; ?>
 <div id="bau-chooser" class="bau-chooser">

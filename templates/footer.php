@@ -34,7 +34,7 @@
 
   //php mailer variables
   //$to = get_option('admin_email');
-  $to = 'szabogabi@gmail.com';
+  $to = 'miklos.kemecsei@brickvisual.com';
   $subject = "Message from ".get_bloginfo('name');
 
   $headers = "From: " . strip_tags($email) . "\r\n";

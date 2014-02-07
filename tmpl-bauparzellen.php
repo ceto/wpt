@@ -3,7 +3,6 @@
 Template Name: Bauparzellen Page Template
 */
 ?>
-<?php get_template_part('templates/page', 'header'); ?>
 <?php get_template_part('templates/bauparzellen', 'page'); ?>
 <!-- <svg id='pattern' xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>

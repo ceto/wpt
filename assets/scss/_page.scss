@@ -20,7 +20,7 @@
       width:auto;
       margin-right:0;
       float:none;
-      margin: 0 -1.5em 1em -1.5em;
+      margin: 0 0 1em 0;
     }
   
   }
@@ -298,11 +298,11 @@
     }
   }
   .pri-cont {
-    max-width: $s2;
-    margin:0 auto;
-    @include breakpoint($s2) {
-      //padding:1.5em;
-    }
+    // max-width: $s2;
+    // margin:0 auto;
+    // @include breakpoint($s2) {
+    //   //padding:1.5em;
+    // }
   }
 }
 

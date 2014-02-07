@@ -3,7 +3,7 @@
       <?php
         $fimi = (is_page())?wp_get_attachment_image_src(get_post_thumbnail_id(),'banner169'):wp_get_attachment_image_src(get_post_thumbnail_id(),'banner21');
       ?>
-      style="background-image:url(<?php echo $fimi[0]; ?>)"
+      style="background-image:url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/flower.png), url(<?php echo $fimi[0]; ?>)"
       <?php endif; ?>
     >
       <div class="trapezoid"></div>
