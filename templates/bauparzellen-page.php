@@ -1,12 +1,21 @@
 <?php while (have_posts()) : the_post(); ?>
-  <div class="head-lead">
+  
     <?php get_template_part('templates/page', 'header'); ?>
     <div class="pri-cont">
       <?php the_content(); ?>
     </div>
-  </div>
 <?php endwhile; ?>
-<div id="bau-chooser" class="bau-chooser">
+
+<div class="legende green"> 
+	<div class="box"></div>
+	<div>verfügbar</div>
+</div>
+<div class="legende grey"> 
+	<div class="box"></div>
+	<div>verkauft</div>
+</div>
+
+<div id="bau-chooser" class="bau-chooser" data-bgimg="http://www.wohnpark-tullnerfeld.at/wp-content/themes/wpt/assets/img/masterplan.gif">
 </div>
 <div class="bau-data">
   <?php

@@ -602,7 +602,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
 
 .apartment-chooser { max-width: 100%; width: auto\9; height: auto; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; background-position: left top; background-repeat: no-repeat; -webkit-background-size: 100% auto; background-size: 100% auto; margin: 0 0; margin-top: 2em; }
 
-.bau-chooser { max-width: 100%; width: auto\9; height: auto; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; background: url(../img/masterplan.gif) no-repeat left top transparent; -webkit-background-size: 100% auto; background-size: 100% auto; }
+.bau-chooser { max-width: 100%; width: auto\9; height: auto; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; /*background: url(../img/masterplan.gif) no-repeat left top transparent;*/ -webkit-background-size: 100% auto; background-size: 100% auto; }
 
 .bau-data { display: none; }
 

@@ -57,7 +57,7 @@ Template Name: Apartment Chooser Start Template
   }
 ?>
 </ul>
-<div id="apartment-chooser" class="apartment-chooser" style="background-image:url('<?php echo $imci[0]; ?>')">
+<div id="apartment-chooser" class="apartment-chooser" data-bgimg="<?php echo $imci[0]; ?>" style="">
 </div>
 
 <div class="data-table">

@@ -1,7 +1,7 @@
 <?php get_template_part('templates/head'); ?>
 <body <?php body_class(); ?>>
 
-  <!--[if lt IE 8]>
+  <!--[if lt IE 9]>
     <div class="alert alert-warning">
       <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?>
     </div>
@@ -20,7 +20,7 @@
       <a href="#respond" class="mail popup-with-form"><span class="icon-mail"></span>JETZT ANFRAGEN</a>
     </section>
 
-    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment')) && (!is_page_template('taxonomy-object.php')) && (!is_page_template('tmpl-bauparzellen.php'))  ) : ?>
+    <?php if ( ( is_singular() || is_home() ) && (!is_singular('apartment')) && (!is_page_template('taxonomy-object.php'))  ) : ?>
     <?php get_template_part('templates/advert'); ?>
     <?php endif; ?>
 

@@ -123,13 +123,13 @@ jQuery(document).ready(function($) {
 /********* Apartment Part ********/
 
 if ( $('#apartment-chooser').length > 0 ) {
+    var apbg=$('#apartment-chooser').attr('data-bgimg');
     var szelesseg = $('#apartment-chooser').width();
     var origwidth=1280;
     var origheight=449;
-    var paper = new Raphael(document.getElementById('apartment-chooser'), origwidth, origheight);
     var origratio=origheight/origwidth;
+    var paper = new Raphael(document.getElementById('apartment-chooser'), origwidth, origheight);
 }
-
 
 function aredraw_canvas() {
 
@@ -139,6 +139,9 @@ function aredraw_canvas() {
 
   paper.setSize(szelesseg, szelesseg*origratio);
   paper.setViewBox(0, 0, origwidth, origheight, true);
+
+  //var bgimg = paper.image("http://www.wohnpark-tullnerfeld.at/wp-content/uploads/2014/02/sud_cropped.jpg", 0, 0, origwidth, origheight);
+  bgimg = paper.image(apbg, 0, 0, origwidth, origheight);
 
   var items = [];
   var text ='';
@@ -174,13 +177,13 @@ function aredraw_canvas() {
     });
 
 
-    items[index].node.onmousemove = function(event){
+    $(items[index].node).on('mousemove', function(event){
       var tooltipX = event.pageX - 8;
       var tooltipY = event.pageY + 8;
       $('div.tooltip').css({top: tooltipY, left: tooltipX});
-    };
+    });
 
-    items[index].node.onmouseenter = function(event){
+    $(items[index].node).on('mouseenter', function(event){
       this.style.cursor = 'pointer';
       $('div.tooltip').remove();
       $('<div class="tooltip">'+
@@ -192,17 +195,17 @@ function aredraw_canvas() {
             '<span class="price">Preis: '+menuitem.attr('data-price')+'</span>'+
             '</p>'+
             '</div>').appendTo('body');
+
+
       var tooltipX = event.pageX - 8;
-      var tooltipY = event.pageY + 8;
+      var tooltipY = event.pageY - 8;
+
       $('div.tooltip').css({top: tooltipY, left: tooltipX});
+    });
 
-    };
-
-    items[index].node.onmouseleave = function(event){
+    $(items[index].node).on('mouseleave', function(event){
       $('div.tooltip').remove();
-
-    };
-
+    });
 
     items[index].hover(
       function(event){
@@ -248,6 +251,7 @@ function aredraw_canvas() {
 /********* Bauparzellen Part ********/
 
 if ( $('#bau-chooser').length > 0 ) {
+    var baubg=$('#bau-chooser').attr('data-bgimg');
     var szelesseg = $('#bau-chooser').width();
     var origwidth=842;
     var origheight=1474;
@@ -263,6 +267,9 @@ function bredraw_canvas() {
 
   paper.setSize(szelesseg, szelesseg*origratio);
   paper.setViewBox(0, 0, origwidth, origheight, true);
+
+  bgimg = paper.image(baubg, 0, 0, origwidth, origheight);
+
 
   var items = [];
   var text ='';
@@ -309,22 +316,7 @@ function bredraw_canvas() {
       items[index].click(function () {
       
         if ( menuitem.attr('data-status')==='available' ) {
-          // $.magnificPopup.open({
-          //   items: {
-          //     src: '<div class="white-popup">'+
-          //       '<h3>'+menuitem.attr('data-name')+'</h3>'+
-          //       '<p>'+
-          //       '<span class="size">Größe: '+menuitem.attr('data-size')+' m<sup>2</sup></span><br/>'+
-          //       '<span class="price">Kaufpreis: '+menuitem.attr('data-price')+'</span>'+
-          //       '<a href="?page_id=487&ap_id='+menuitem.attr('data-name')+'" class="btn"><span class="icon-envelope"></span>Anfrage</a>'+
-          //       '</p>'+
-          //       '</div>'
-            
-          //   },
-          //   type: 'inline'
-          // }, 0);
-
-            
+           
             $('#message_betreff').val('Nr.: '+menuitem.attr('data-name')+" \nGröße: "+menuitem.attr('data-size')+"m2, \nPreis: "+menuitem.attr('data-price'));
             $('#infopan').replaceWith('<div id="infopan"><h3>'+menuitem.attr('data-name')+'</h3><p>Größe: '+menuitem.attr('data-size')+"m2,<br>Preis: "+menuitem.attr('data-price')+'</p></div>');
 
@@ -355,13 +347,13 @@ function bredraw_canvas() {
       });
 
     
-      items[index].node.onmousemove = function(event){
+      $(items[index].node).on('mousemove', function(event){
         var tooltipX = event.pageX - 8;
         var tooltipY = event.pageY + 8;
         $('div.tooltip').css({top: tooltipY, left: tooltipX});
-      };
+      });
 
-      items[index].node.onmouseenter = function(event){
+      $(items[index].node).on('mouseenter', function(event){
         this.style.cursor = 'pointer';
         $('div.tooltip').remove();
         $('<div class="tooltip">'+
@@ -374,34 +366,35 @@ function bredraw_canvas() {
         var tooltipX = event.pageX - 8;
         var tooltipY = event.pageY + 8;
         $('div.tooltip').css({top: tooltipY, left: tooltipX});
+      });
 
-      };
-
-      items[index].node.onmouseleave = function(event){
+      $(items[index].node).on('mouseleave', function(event){
         $('div.tooltip').remove();
-
-      };
+      });
 
     }
 
-    items[index].hover(
-      function(event){
-        items[index].attr(
-        {
-          opacity: 1,
-          fill: '#9c1a79'
-        });
-        menuitem.toggleClass('active');
-      },
-      function(){
-        items[index].attr(
-        {
-          opacity: 1,
-          fill: '#a5da64'
-        });
-        menuitem.toggleClass('active');
-      }
-    );
+    if ( menuitem.attr('data-status')==='available' ) {
+      items[index].hover(
+        function(event){
+          items[index].attr(
+          {
+            opacity: 1,
+            fill: '#9c1a79'
+          });
+          menuitem.toggleClass('active');
+        },
+        function(){
+          items[index].attr(
+          {
+            opacity: 1,
+            fill: '#a5da64'
+          });
+          
+          menuitem.toggleClass('active');
+        }
+      );
+    }
 
     menuitem.hover(
       function(){
